@@ -66,7 +66,7 @@ class PageView: UIView {
     
     func updateProgressValue(progress: CGFloat)
     {
-        //three functions where tested for the effect...
+        //some functions where tested for the effect...
         // function: y = -(x^2)+1
         //let val = min(1.0, max(0.0, -(progress*progress) + 1))
         

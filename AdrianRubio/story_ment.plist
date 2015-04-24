@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>story</key>
+		<string>It&apos;s such a cold world</string>
+		<key>imageFile</key>
+		<string>night</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>Hello, cold world</string>
+		<key>imageFile</key>
+		<string>alit</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>But I&apos;ll get right back up, as long as it spins around...</string>
+		<key>imageFile</key>
+		<string>hey</string>
+	</dict>
+</array>
+</plist>

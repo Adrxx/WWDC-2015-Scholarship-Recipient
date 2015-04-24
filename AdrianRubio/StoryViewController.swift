@@ -72,7 +72,6 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
             p.updateProgressValue(progress - CGFloat(i))
         }
         
-        println(progress)
         if progress > (CGFloat(self.pageViews.count) - 0.8)
         {
             self.view.backgroundColor = UIColor.redColor()

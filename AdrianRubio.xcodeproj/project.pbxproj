@@ -11,7 +11,6 @@
 		3A0C1B381AE199F100D718CE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C1B371AE199F100D718CE /* GameViewController.swift */; };
 		3A0C1B3B1AE199F100D718CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B391AE199F100D718CE /* Main.storyboard */; };
 		3A0C1B3D1AE199F100D718CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B3C1AE199F100D718CE /* Images.xcassets */; };
-		3A0C1B401AE199F100D718CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B3E1AE199F100D718CE /* LaunchScreen.xib */; };
 		3A0C1B4C1AE199F100D718CE /* AdrianRubioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C1B4B1AE199F100D718CE /* AdrianRubioTests.swift */; };
 		3A2F60DD1AE611FF00D33EF0 /* Background.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F60DB1AE611FF00D33EF0 /* Background.scnp */; };
 		3A2F60DE1AE611FF00D33EF0 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F60DC1AE611FF00D33EF0 /* spark.png */; };
@@ -19,12 +18,14 @@
 		3A476E671AE8C0B40036B5CE /* FiraSans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A476E661AE8C0B40036B5CE /* FiraSans.otf */; };
 		3A4D524D1AE6975000395D77 /* ARInflatingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */; };
 		3A4D52511AE69E2400395D77 /* InflatingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D52501AE69E2400395D77 /* InflatingGame.swift */; };
+		3A9675E31AE9E26B0093533A /* story_ment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9675E21AE9E26B0093533A /* story_ment.plist */; };
 		3AA5EE501AE9395C00DFFF8E /* CatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE4F1AE9395C00DFFF8E /* CatchingGame.swift */; };
-		3AA5EE521AE93A1300DFFF8E /* ARButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE511AE93A1300DFFF8E /* ARButtonNode.swift */; };
+		3AA5EE521AE93A1300DFFF8E /* ARCatchingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */; };
 		3AA5EE561AE9408D00DFFF8E /* trail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5EE551AE9408D00DFFF8E /* trail.sks */; };
 		3AA5EE581AE9412600DFFF8E /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5EE571AE9412600DFFF8E /* circle.png */; };
 		3AA5EE5A1AE94A0500DFFF8E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE591AE94A0500DFFF8E /* CustomSegue.swift */; };
 		3AA5EE5C1AE94AB700DFFF8E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE5B1AE94AB700DFFF8E /* NavigationController.swift */; };
+		3ACB00531AEA12F000F2429B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B3E1AE199F100D718CE /* LaunchScreen.xib */; };
 		3AE294421AE31B790075FCB8 /* ARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE294411AE31B790075FCB8 /* ARNode.swift */; };
 		3AE294471AE4300F0075FCB8 /* PolygonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE294461AE4300F0075FCB8 /* PolygonBackground.swift */; };
 		3AF031441AE847D400970BF0 /* Perfograma.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF031431AE847D400970BF0 /* Perfograma.otf */; };
@@ -62,8 +63,9 @@
 		3A476E661AE8C0B40036B5CE /* FiraSans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FiraSans.otf; sourceTree = "<group>"; };
 		3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARInflatingNode.swift; sourceTree = "<group>"; };
 		3A4D52501AE69E2400395D77 /* InflatingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflatingGame.swift; sourceTree = "<group>"; };
+		3A9675E21AE9E26B0093533A /* story_ment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_ment.plist; sourceTree = "<group>"; };
 		3AA5EE4F1AE9395C00DFFF8E /* CatchingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatchingGame.swift; sourceTree = "<group>"; };
-		3AA5EE511AE93A1300DFFF8E /* ARButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARButtonNode.swift; sourceTree = "<group>"; };
+		3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARCatchingNode.swift; sourceTree = "<group>"; };
 		3AA5EE551AE9408D00DFFF8E /* trail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = trail.sks; sourceTree = "<group>"; };
 		3AA5EE571AE9412600DFFF8E /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		3AA5EE591AE94A0500DFFF8E /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				3A0C1B311AE199F100D718CE /* AppDelegate.swift */,
+				3A9675E21AE9E26B0093533A /* story_ment.plist */,
 				3AF0314D1AE8858400970BF0 /* story_alit.plist */,
 				3A0C1B301AE199F100D718CE /* Info.plist */,
 			);
@@ -171,7 +174,7 @@
 				3AE294411AE31B790075FCB8 /* ARNode.swift */,
 				3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */,
 				3AF031471AE8775800970BF0 /* ARMixingNode.swift */,
-				3AA5EE511AE93A1300DFFF8E /* ARButtonNode.swift */,
+				3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */,
 			);
 			name = Arnodes;
 			sourceTree = "<group>";
@@ -276,9 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A0C1B401AE199F100D718CE /* LaunchScreen.xib in Resources */,
+				3ACB00531AEA12F000F2429B /* LaunchScreen.xib in Resources */,
 				3AF031441AE847D400970BF0 /* Perfograma.otf in Resources */,
 				3A476E671AE8C0B40036B5CE /* FiraSans.otf in Resources */,
+				3A9675E31AE9E26B0093533A /* story_ment.plist in Resources */,
 				3A2F60DE1AE611FF00D33EF0 /* spark.png in Resources */,
 				3AF0314E1AE8858400970BF0 /* story_alit.plist in Resources */,
 				3A0C1B3D1AE199F100D718CE /* Images.xcassets in Resources */,
@@ -316,7 +320,7 @@
 				3AF031481AE8775800970BF0 /* ARMixingNode.swift in Sources */,
 				3A0C1B321AE199F100D718CE /* AppDelegate.swift in Sources */,
 				3AA5EE501AE9395C00DFFF8E /* CatchingGame.swift in Sources */,
-				3AA5EE521AE93A1300DFFF8E /* ARButtonNode.swift in Sources */,
+				3AA5EE521AE93A1300DFFF8E /* ARCatchingNode.swift in Sources */,
 				3AF031461AE84F3900970BF0 /* MixingGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

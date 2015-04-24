@@ -10,14 +10,62 @@ import Foundation
 import SpriteKit
 import Darwin
 
-let SHAPES_RADIUS:CGFloat = 30.0
-let TRIANGULAR_SEPARATION_RADIUS:CGFloat = 50.0
+let SHAPES_RADIUS:CGFloat = 45.0
+let TRIANGULAR_SEPARATION_RADIUS:CGFloat = 100.0
+let ACCEPTABLE_DISTANCE:CGFloat = 40.0
 
-class MixingGame: GameViewController {
+extension MixingGame
+{
     
-    let blueNode = SKShapeNode(circleOfRadius: SHAPES_RADIUS)
-    let redNode = SKShapeNode(circleOfRadius: SHAPES_RADIUS)
-    let greenNode = SKShapeNode(circleOfRadius: SHAPES_RADIUS)
+    func distanceBetweenRects( rect1: CGRect,_ rect2: CGRect) -> CGFloat
+    {
+        let c1 = CGPointMake( CGRectGetMidX( rect1 ), CGRectGetMidY( rect1 ) )
+        let c2 = CGPointMake( CGRectGetMidX( rect2 ), CGRectGetMidY( rect2 ) )
+        
+        let xDif = c2.x - c1.x
+        let yDif = c2.y - c1.y
+        
+        
+        
+        return sqrt( ( xDif * xDif ) + ( yDif * yDif ) )
+    }
+    
+    func midPointBetweenRects(rect1: CGRect,_ rect2: CGRect) -> CGPoint
+    {
+        let c1 = CGPointMake( CGRectGetMidX( rect1 ), CGRectGetMidY( rect1 ) )
+        let c2 = CGPointMake( CGRectGetMidX( rect2 ), CGRectGetMidY( rect2 ) )
+        
+        let xDif = c2.x - c1.x
+        let yDif = c2.y - c1.y
+        
+        return CGPoint(x: c2.x - xDif/2, y: c2.y - yDif/2)
+        
+    }
+    
+    func mixNodes(node1: SKNode, node2: SKNode, tolerance: CGFloat) -> Bool
+    {
+        
+        let dist = self.distanceBetweenRects(node1.frame, node2.frame)
+
+        if dist <= tolerance
+        {
+            let p = self.midPointBetweenRects(node1.frame, node2.frame)
+            let move = SKAction.moveTo(p, duration: 0.2)
+            move.timingMode = SKActionTimingMode.EaseInEaseOut
+            node1.runAction(move)
+            node2.runAction(move)
+            
+            return true
+        }
+        return false
+    }
+}
+
+class MixingGame: GameViewController,SKSceneDelegate {
+
+    let blueNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
+    let redNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
+    let greenNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +73,7 @@ class MixingGame: GameViewController {
         let skView = self.view as! SKView
         let scene = SKScene(size: self.view.frame.size)
         scene.backgroundColor = UIColor.blackColor()
+        scene.delegate = self
         
         self.blueNode.fillColor = UIColor.blueColor()
         self.blueNode.strokeColor = UIColor.blueColor()
@@ -54,6 +103,46 @@ class MixingGame: GameViewController {
         
         
         skView.presentScene(scene)
+    }
+    
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+        
+        let dist1 = self.distanceBetweenRects(self.redNode.frame, self.blueNode.frame)
+        let dist2 = self.distanceBetweenRects(self.redNode.frame, self.greenNode.frame)
+        let dist3 = self.distanceBetweenRects(self.blueNode.frame, self.greenNode.frame)
+
+        if dist1 <= ACCEPTABLE_DISTANCE && dist2 <= ACCEPTABLE_DISTANCE && dist3 <= ACCEPTABLE_DISTANCE {
+            let p = self.midPointBetweenRects(self.redNode.frame, self.blueNode.frame)
+            let move = SKAction.moveTo(p, duration: 0.2)
+            let win = SKAction.customActionWithDuration(0.0, actionBlock: { (n, t) -> Void in
+                self.challengeWon()
+            })
+            move.timingMode = SKActionTimingMode.EaseInEaseOut
+            
+            self.redNode.runAction(move)
+            self.blueNode.runAction(move)
+            self.greenNode.runAction(SKAction.sequence([move,win])) //TODO: not the most elegant solution...
+            
+        }
+        else {
+            if !self.mixNodes(self.blueNode, node2: self.redNode, tolerance: ACCEPTABLE_DISTANCE){
+                if !self.mixNodes(self.redNode, node2: self.greenNode, tolerance: ACCEPTABLE_DISTANCE){
+                    self.mixNodes(self.greenNode, node2: self.blueNode, tolerance: ACCEPTABLE_DISTANCE)
+                }
+
+            }
+        }
+        
         
     }
+    
+    override func challengeWon() {
+        self.transitionToStory()
+    }
+    
+    
+    
+    
 }

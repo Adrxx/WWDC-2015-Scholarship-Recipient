@@ -21,6 +21,17 @@ class InflatingGame: GameViewController {
         
         super.viewDidLoad()
         
+        
+        let clue = self.generateClue("Inflate",color: UIColor.blackColor())
+        clue.alpha = 0.0
+        clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height - clue.frame.size.height/2)
+        self.view.addSubview(clue)
+        
+        UIView.animateWithDuration(5.0, delay: 6.0, options: nil, animations: { () -> Void in
+            clue.alpha = 0.4
+            }, completion: nil)
+        
+        
         self.arnode.gameViewController = self
         //Position arnode in center
         self.arnode.frame.origin = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)

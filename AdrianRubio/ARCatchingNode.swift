@@ -1,5 +1,5 @@
 //
-//  ARButtonNode.swift
+//  ARCatchingNode.swift
 //  AdrianRubio
 //
 //  Created by Adrián Rubio on 4/23/15.
@@ -10,10 +10,7 @@ import Foundation
 import SpriteKit
 
 
-class ARButtonNode: SKShapeNode {
-    
-    // let as
-
+class ARCatchingNode: SKShapeNode {
     
     enum nodeState
     {
@@ -52,17 +49,24 @@ class ARButtonNode: SKShapeNode {
     
     func setToNeutral()
     {
-        //self.fillColor = UIColor
+        let color = UIColor.blackColor()
+        self.fillColor = color
+        self.strokeColor = color
     }
     
     func setToOn()
     {
-        
+        let color = UIColor.greenColor()
+        self.fillColor = color
+        self.strokeColor = color
+
     }
     
     func setToOff()
     {
-        
+        let color = UIColor.redColor()
+        self.fillColor = color
+        self.strokeColor = color
     }
     
 }
