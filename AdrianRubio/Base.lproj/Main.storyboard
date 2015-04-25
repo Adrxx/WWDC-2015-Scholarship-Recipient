@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MyN-6u-2BK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bBj-ra-dvI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -62,7 +62,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jy-Uz-qaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011.5" y="-508.5"/>
+            <point key="canvasLocation" x="1947" y="-508.5"/>
+        </scene>
+        <!--Clearing Game-->
+        <scene sceneID="0s8-XJ-arN">
+            <objects>
+                <viewController id="bBj-ra-dvI" customClass="ClearingGame" customModule="AdrianRubio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5iQ-PS-ZFn"/>
+                        <viewControllerLayoutGuide type="bottom" id="5OD-HD-YkQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hAc-bP-Z35">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nzT-lO-raR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3289.5" y="-508.5"/>
         </scene>
         <!--Repeating Game-->
         <scene sceneID="CC8-oX-nwS">

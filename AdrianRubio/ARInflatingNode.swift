@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ARInflatingNode: ARNode {
-    //TODO: Shouldn't use UIView...
+        //TODO: Shouldn't use UIView... should use UIDynamicItem
     class mapper: UIView {
         var target:ARInflatingNode?
         var goalValue:CGFloat = 1.0
@@ -18,7 +18,7 @@ class ARInflatingNode: ARNode {
             didSet
             {
                 //Mapping the center.y property
-                //TODO: Error prone: initialValue could be zero... not fixing due to time limit.
+                //TODO: Error prone: goal could be zero... not fixing due to time limit.
                 var val = self.center.y/self.goalValue
                 val = max(min(1.0, val),0.0)
                 self.mapValue(val)
@@ -30,18 +30,20 @@ class ARInflatingNode: ARNode {
         //val will be a value between 0 an 1
         func mapValue(val: CGFloat)
         {
-            if let uTarget = target
+            if let t = target
             {
                 //println("VALUE= \(val)")
-                uTarget.inflation = val * uTarget.inflationGoal + uTarget.baseInflation
+                t.inflation = val * t.inflationGoal + t.baseInflation
             }
         }
     }
+    weak var gameViewController:GameViewController? //So a node can send challengeWon()
     
-    let baseInflation:CGFloat = 80.0
-    var inflationGoal:CGFloat = 500.0
+    let baseInflation:CGFloat
+    let inflationGoal:CGFloat
     private(set) var inflated = false
-    var inflation:CGFloat = 100.0 {
+    
+    var inflation:CGFloat {
         didSet
         {
             self.inflated = (self.inflation >= self.inflationGoal)
@@ -50,19 +52,25 @@ class ARInflatingNode: ARNode {
             {
                 self.gameViewController?.challengeWon()
             }
-            self.frame = CGRect(origin: self.frame.origin, size: CGSize(
-                width: self.inflation,
-                height: self.inflation))
+            
+            self.radius = self.inflation
         }
     }
     
-    init() {
-        super.init(frame: CGRect(origin: CGPointZero, size: CGSize(width: self.inflation, height: inflation)))
-        self.backgroundColor = UIColor.orangeColor()
+    init(inflation: CGFloat, goal:CGFloat, center: CGPoint)
+    {
+        self.inflationGoal = goal
+        self.inflation = inflation
+        self.baseInflation = inflation
+        super.init(radius: inflation, center: center)
+        self.backgroundColor = UIColor.darkGrayColor()
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.baseInflation = 0
+        self.inflationGoal = 0
+        self.inflation = 0
+        super.init(coder: aDecoder)
     }
     
 }

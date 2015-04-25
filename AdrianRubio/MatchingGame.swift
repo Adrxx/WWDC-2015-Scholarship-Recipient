@@ -25,14 +25,25 @@ extension MatchingGame {
 
 class MatchingGame: GameViewController {
     let nodeSeparation:CGFloat = 80.0
-    var nodes:[ARMatchingNode] = []
+    var nodes = [ARMatchingNode]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
+        // Six nodes in this level
         for i in 0..<6 {
             let n = ARMatchingNode(radius: 20, center: CGPointZero)
             self.nodes.append(n)
             self.view.addSubview(n)
+        }
+        
+        // So not all nodes are equal before even playing
+        while self.allNodesValuesEqual(self.nodes)
+        {
+            for i in self.nodes
+            {
+                i.randomize()
+            }
         }
         
         self.alignNodesInLine(&self.nodes, center:self.view.center, separation: nodeSeparation)
@@ -41,19 +52,21 @@ class MatchingGame: GameViewController {
     //Faster than attatching a delegate to every node... however not very elegant.
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 
-        func allNodesValuesEqual(n: [ARMatchingNode]) -> Bool {
-            for i in n
-            {
-                if (i.colorIndex != n[0].colorIndex) { return false }
-            }
-            return true
-        }
-        
-        if allNodesValuesEqual(self.nodes) {
+
+        if self.allNodesValuesEqual(self.nodes) {
             self.challengeWon()
         }
         
     }
+    
+    func allNodesValuesEqual(n: [ARMatchingNode]) -> Bool {
+        for i in n
+        {
+            if (i.colorIndex != n[0].colorIndex) { return false }
+        }
+        return true
+    }
+    
     
     override func challengeWon() {
         

@@ -12,10 +12,11 @@ import Darwin
 
 class InflatingGame: GameViewController {
 
+    var arnode:ARInflatingNode!
+
     var animator:UIDynamicAnimator!
     var gravityMapper:ARInflatingNode.mapper!
-    var pusher: UIPushBehavior!
-    let arnode = ARInflatingNode()
+    var pusher:UIPushBehavior!
 
     override func viewDidLoad() {
         
@@ -32,13 +33,10 @@ class InflatingGame: GameViewController {
             }, completion: nil)
         
         
-        self.arnode.gameViewController = self
-        //Position arnode in center
-        self.arnode.frame.origin = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
-        //Set inflation goal to screen height
+        let hypotenuse = sqrt(pow(self.view.frame.height/2, 2) + pow(self.view.frame.width/2,2))
+        self.arnode = ARInflatingNode(inflation: 45, goal: hypotenuse, center: CGPoint(x: CGRectGetMidX(self.view.frame), y: CGRectGetMidY(self.view.frame)))
         
-        let hypotenuse = sqrt(pow(self.view.frame.height, 2) + pow(self.view.frame.width,2))
-        self.arnode.inflationGoal = hypotenuse;
+        self.arnode.gameViewController = self
         self.view.addSubview(self.arnode)
         
         //Tap gesture recognizer

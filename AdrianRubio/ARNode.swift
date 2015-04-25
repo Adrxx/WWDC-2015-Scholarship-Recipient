@@ -16,45 +16,33 @@ import SpriteKit
     Arnodes love to play games and tell stories (in that order)
 */
 
-let SHRINKING_DURATION = 0.5
-
 class ARNode: UIView
 {
-    weak var gameViewController:GameViewController? //So a node can send challengeWon()
-    private var originalFrame = CGRectZero
-    private var originalRadius:CGFloat = 0
-    let shrinkValue:CGFloat = 15
-    
-    override var frame:CGRect {
-        get {
-            return self.originalFrame
-        }
-        set {
-            //This is to make the nodes grow from their center
-            self.originalFrame = newValue
-            self.layer.cornerRadius = self.frame.width/2
-            super.frame = CGRect(
-                x:self.originalFrame.origin.x - newValue.size.width/2,
-                y:self.originalFrame.origin.y - newValue.size.height/2,
-                width: newValue.width,
-                height: newValue.height)
+    var radius:CGFloat {
+        didSet
+        {
+            //nodes are circles
+            self.layer.cornerRadius = self.radius
+            let cent = self.center
+            self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.radius*2, height: self.radius*2)
+            self.center = cent
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.originalRadius = self.frame.width/2
-    }
     
-    convenience init(radius: CGFloat, center: CGPoint) {
-        self.init(frame: CGRect(x: center.x, y: center.y, width: radius*2, height: radius*2))
+    init(radius: CGFloat, center: CGPoint) {
+        self.radius = radius
+        super.init(frame: CGRect(x: 0, y: 0, width: radius*2, height: radius*2))
+        self.center = center
+        self.layer.cornerRadius = self.radius
+
     }
     
     required init(coder aDecoder: NSCoder) {
+        self.radius = 0
         super.init(coder: aDecoder)
     }
     
-
     
     
 }
