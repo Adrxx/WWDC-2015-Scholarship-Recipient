@@ -24,6 +24,7 @@ extension GameViewController
 
         return lab
     }
+    
 }
 
 class GameViewController: UIViewController {

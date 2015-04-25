@@ -16,40 +16,40 @@ let ACCEPTABLE_DISTANCE:CGFloat = 40.0
 
 extension MixingGame
 {
-    
-    func distanceBetweenRects( rect1: CGRect,_ rect2: CGRect) -> CGFloat
-    {
+    func distanceBetweenRects( rect1: CGRect,_ rect2: CGRect) -> CGFloat {
         let c1 = CGPointMake( CGRectGetMidX( rect1 ), CGRectGetMidY( rect1 ) )
         let c2 = CGPointMake( CGRectGetMidX( rect2 ), CGRectGetMidY( rect2 ) )
         
         let xDif = c2.x - c1.x
         let yDif = c2.y - c1.y
-        
-        
         
         return sqrt( ( xDif * xDif ) + ( yDif * yDif ) )
     }
     
-    func midPointBetweenRects(rect1: CGRect,_ rect2: CGRect) -> CGPoint
-    {
-        let c1 = CGPointMake( CGRectGetMidX( rect1 ), CGRectGetMidY( rect1 ) )
-        let c2 = CGPointMake( CGRectGetMidX( rect2 ), CGRectGetMidY( rect2 ) )
+    func midPointBetweenRects(rects: [CGRect]) -> CGPoint {
+        var avgX:CGFloat = 0
+        var avgY:CGFloat = 0
+        for r in rects
+        {
+            let c = CGPointMake( CGRectGetMidX( r ), CGRectGetMidY( r ) )
+            avgX += c.x
+            avgY += c.y
+        }
         
-        let xDif = c2.x - c1.x
-        let yDif = c2.y - c1.y
-        
-        return CGPoint(x: c2.x - xDif/2, y: c2.y - yDif/2)
-        
+        avgX /= CGFloat(rects.count)
+        avgY /= CGFloat(rects.count)
+
+        return CGPoint(x: avgX, y: avgY)
     }
     
-    func mixNodes(node1: SKNode, node2: SKNode, tolerance: CGFloat) -> Bool
-    {
+    
+    func mixNodes(node1: SKNode, node2: SKNode, tolerance: CGFloat) -> Bool {
         
         let dist = self.distanceBetweenRects(node1.frame, node2.frame)
 
         if dist <= tolerance
         {
-            let p = self.midPointBetweenRects(node1.frame, node2.frame)
+            let p = self.midPointBetweenRects([node1.frame, node2.frame])
             let move = SKAction.moveTo(p, duration: 0.2)
             move.timingMode = SKActionTimingMode.EaseInEaseOut
             node1.runAction(move)
@@ -100,11 +100,9 @@ class MixingGame: GameViewController,SKSceneDelegate {
         let greenY = sin(330*CGFloat(M_PI)/180) * TRIANGULAR_SEPARATION_RADIUS
         self.greenNode.position = CGPoint(x: self.view.frame.size.width/2 + greenX ,y: self.view.frame.size.height/2 + greenY)
         scene.addChild(self.greenNode)
-        
-        
+            
         skView.presentScene(scene)
     }
-    
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
@@ -114,7 +112,7 @@ class MixingGame: GameViewController,SKSceneDelegate {
         let dist3 = self.distanceBetweenRects(self.blueNode.frame, self.greenNode.frame)
 
         if dist1 <= ACCEPTABLE_DISTANCE && dist2 <= ACCEPTABLE_DISTANCE && dist3 <= ACCEPTABLE_DISTANCE {
-            let p = self.midPointBetweenRects(self.redNode.frame, self.blueNode.frame)
+            let p = self.midPointBetweenRects([self.redNode.frame, self.blueNode.frame,self.greenNode.frame])
             let move = SKAction.moveTo(p, duration: 0.2)
             let win = SKAction.customActionWithDuration(0.0, actionBlock: { (n, t) -> Void in
                 self.challengeWon()

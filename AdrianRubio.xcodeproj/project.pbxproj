@@ -26,6 +26,12 @@
 		3AA5EE5A1AE94A0500DFFF8E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE591AE94A0500DFFF8E /* CustomSegue.swift */; };
 		3AA5EE5C1AE94AB700DFFF8E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE5B1AE94AB700DFFF8E /* NavigationController.swift */; };
 		3ACB00531AEA12F000F2429B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B3E1AE199F100D718CE /* LaunchScreen.xib */; };
+		3ACB00551AEA980900F2429B /* RepeatingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB00541AEA980900F2429B /* RepeatingGame.swift */; };
+		3ACB00581AEA986500F2429B /* psyco.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3ACB00561AEA986500F2429B /* psyco.sks */; };
+		3ACB00591AEA986500F2429B /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACB00571AEA986500F2429B /* bokeh.png */; };
+		3ACB005B1AEAA31300F2429B /* ARRepeatingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB005A1AEAA31300F2429B /* ARRepeatingNode.swift */; };
+		3ACB005D1AEAD65D00F2429B /* MatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB005C1AEAD65D00F2429B /* MatchingGame.swift */; };
+		3ACB005F1AEAD71E00F2429B /* ARMatchingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB005E1AEAD71E00F2429B /* ARMatchingNode.swift */; };
 		3AE294421AE31B790075FCB8 /* ARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE294411AE31B790075FCB8 /* ARNode.swift */; };
 		3AE294471AE4300F0075FCB8 /* PolygonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE294461AE4300F0075FCB8 /* PolygonBackground.swift */; };
 		3AF031441AE847D400970BF0 /* Perfograma.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF031431AE847D400970BF0 /* Perfograma.otf */; };
@@ -70,6 +76,12 @@
 		3AA5EE571AE9412600DFFF8E /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		3AA5EE591AE94A0500DFFF8E /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		3AA5EE5B1AE94AB700DFFF8E /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		3ACB00541AEA980900F2429B /* RepeatingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingGame.swift; sourceTree = "<group>"; };
+		3ACB00561AEA986500F2429B /* psyco.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = psyco.sks; sourceTree = "<group>"; };
+		3ACB00571AEA986500F2429B /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		3ACB005A1AEAA31300F2429B /* ARRepeatingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARRepeatingNode.swift; sourceTree = "<group>"; };
+		3ACB005C1AEAD65D00F2429B /* MatchingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingGame.swift; sourceTree = "<group>"; };
+		3ACB005E1AEAD71E00F2429B /* ARMatchingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARMatchingNode.swift; sourceTree = "<group>"; };
 		3AE294411AE31B790075FCB8 /* ARNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNode.swift; sourceTree = "<group>"; };
 		3AE294461AE4300F0075FCB8 /* PolygonBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PolygonBackground.swift; path = ../PolygonBackground.swift; sourceTree = "<group>"; };
 		3AF031431AE847D400970BF0 /* Perfograma.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Perfograma.otf; sourceTree = "<group>"; };
@@ -133,6 +145,8 @@
 				3AA5EE5B1AE94AB700DFFF8E /* NavigationController.swift */,
 				3A0C1B391AE199F100D718CE /* Main.storyboard */,
 				3AA5EE551AE9408D00DFFF8E /* trail.sks */,
+				3ACB00561AEA986500F2429B /* psyco.sks */,
+				3ACB00571AEA986500F2429B /* bokeh.png */,
 				3A0C1B3E1AE199F100D718CE /* LaunchScreen.xib */,
 				3A0C1B3C1AE199F100D718CE /* Images.xcassets */,
 				3A0C1B2F1AE199F100D718CE /* Supporting Files */,
@@ -175,6 +189,8 @@
 				3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */,
 				3AF031471AE8775800970BF0 /* ARMixingNode.swift */,
 				3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */,
+				3ACB005A1AEAA31300F2429B /* ARRepeatingNode.swift */,
+				3ACB005E1AEAD71E00F2429B /* ARMatchingNode.swift */,
 			);
 			name = Arnodes;
 			sourceTree = "<group>";
@@ -183,9 +199,11 @@
 			isa = PBXGroup;
 			children = (
 				3A0C1B371AE199F100D718CE /* GameViewController.swift */,
-				3AA5EE4F1AE9395C00DFFF8E /* CatchingGame.swift */,
 				3A4D52501AE69E2400395D77 /* InflatingGame.swift */,
+				3AA5EE4F1AE9395C00DFFF8E /* CatchingGame.swift */,
 				3AF031451AE84F3900970BF0 /* MixingGame.swift */,
+				3ACB00541AEA980900F2429B /* RepeatingGame.swift */,
+				3ACB005C1AEAD65D00F2429B /* MatchingGame.swift */,
 			);
 			name = Games;
 			sourceTree = "<group>";
@@ -283,12 +301,14 @@
 				3AF031441AE847D400970BF0 /* Perfograma.otf in Resources */,
 				3A476E671AE8C0B40036B5CE /* FiraSans.otf in Resources */,
 				3A9675E31AE9E26B0093533A /* story_ment.plist in Resources */,
+				3ACB00581AEA986500F2429B /* psyco.sks in Resources */,
 				3A2F60DE1AE611FF00D33EF0 /* spark.png in Resources */,
 				3AF0314E1AE8858400970BF0 /* story_alit.plist in Resources */,
 				3A0C1B3D1AE199F100D718CE /* Images.xcassets in Resources */,
 				3A2F60DD1AE611FF00D33EF0 /* Background.scnp in Resources */,
 				3AA5EE581AE9412600DFFF8E /* circle.png in Resources */,
 				3A0C1B3B1AE199F100D718CE /* Main.storyboard in Resources */,
+				3ACB00591AEA986500F2429B /* bokeh.png in Resources */,
 				3AFD6CB61AE95BEF00A248F6 /* circle2.png in Resources */,
 				3AA5EE561AE9408D00DFFF8E /* trail.sks in Resources */,
 			);
@@ -313,13 +333,17 @@
 				3A4D524D1AE6975000395D77 /* ARInflatingNode.swift in Sources */,
 				3A4D52511AE69E2400395D77 /* InflatingGame.swift in Sources */,
 				3AF0314B1AE878CA00970BF0 /* StoryViewController.swift in Sources */,
+				3ACB005F1AEAD71E00F2429B /* ARMatchingNode.swift in Sources */,
 				3AA5EE5C1AE94AB700DFFF8E /* NavigationController.swift in Sources */,
 				3AE294421AE31B790075FCB8 /* ARNode.swift in Sources */,
 				3A0C1B381AE199F100D718CE /* GameViewController.swift in Sources */,
+				3ACB005B1AEAA31300F2429B /* ARRepeatingNode.swift in Sources */,
+				3ACB005D1AEAD65D00F2429B /* MatchingGame.swift in Sources */,
 				3AA5EE5A1AE94A0500DFFF8E /* CustomSegue.swift in Sources */,
 				3AF031481AE8775800970BF0 /* ARMixingNode.swift in Sources */,
 				3A0C1B321AE199F100D718CE /* AppDelegate.swift in Sources */,
 				3AA5EE501AE9395C00DFFF8E /* CatchingGame.swift in Sources */,
+				3ACB00551AEA980900F2429B /* RepeatingGame.swift in Sources */,
 				3AA5EE521AE93A1300DFFF8E /* ARCatchingNode.swift in Sources */,
 				3AF031461AE84F3900970BF0 /* MixingGame.swift in Sources */,
 			);

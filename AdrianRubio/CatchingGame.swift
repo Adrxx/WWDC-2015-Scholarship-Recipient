@@ -35,6 +35,9 @@ class CatchingGame : GameViewController, SKSceneDelegate {
         //Spinning Node
         let followPath = SKAction.followPath(circlePath, asOffset: false, orientToPath: false, duration: NODE_SPIN_DURATION)
         
+        //followPath.timingMode = SKActionTimingMode.EaseInEaseOut
+
+        
         self.spinningNode = ARCatchingNode(circleOfRadius: NODE_SIZE)
         self.spinningNode.runAction(SKAction.repeatActionForever(followPath))
         

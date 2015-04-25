@@ -50,8 +50,6 @@ class ARInflatingNode: ARNode {
             {
                 self.gameViewController?.challengeWon()
             }
-            
-            self.layer.cornerRadius = self.inflation/2
             self.frame = CGRect(origin: self.frame.origin, size: CGSize(
                 width: self.inflation,
                 height: self.inflation))
