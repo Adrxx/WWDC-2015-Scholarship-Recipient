@@ -12,6 +12,7 @@ import SpriteKit
 
 class ARRepeatingNode: ARNode {
     
+    let tapDuration = 0.15
     let flasherSize:CGFloat = 15
     let flashColor = UIColor.orangeColor()
     let normalColor = UIColor.redColor()
@@ -75,16 +76,23 @@ class ARRepeatingNode: ARNode {
     func tap()
     {
         self.flash()
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.buttonNode.backgroundColor = self.tappedColor
-            }) { (finished: Bool) -> Void in
-                UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    self.buttonNode.backgroundColor = self.normalColor
-                    if let g = self.gameController
-                    {
-                        g.tappedNodeWithIdentifier(self.identifier)
-                    }
-                })
+        
+        if let g = self.gameController
+        {
+            g.tappedNodeWithIdentifier(self.identifier)
         }
+        
+        UIView.animateWithDuration(self.tapDuration, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction | UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+            self.buttonNode.backgroundColor = self.tappedColor
+
+            }) { (finished: Bool) -> Void in
+            
+                UIView.animateWithDuration(self.tapDuration, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction | UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+                    self.buttonNode.backgroundColor = self.normalColor
+                 
+                    
+                }, completion:nil)
+        }
+        
     }
 }

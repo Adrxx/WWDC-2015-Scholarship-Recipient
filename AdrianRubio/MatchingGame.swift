@@ -11,7 +11,7 @@ import UIKit
 
 extension MatchingGame {
     
-    func alignNodesInLine(inout items:[ARMatchingNode],center: CGPoint,separation: CGFloat)
+    func alignNodesInLine(items:[ARMatchingNode],center: CGPoint,separation: CGFloat)
     {
         let offset = (separation * CGFloat(items.count-1))/2
         for i in 0..<items.count {
@@ -46,7 +46,7 @@ class MatchingGame: GameViewController {
             }
         }
         
-        self.alignNodesInLine(&self.nodes, center:self.view.center, separation: nodeSeparation)
+        self.alignNodesInLine(self.nodes, center:self.view.center, separation: nodeSeparation)
     }
     
     //Faster than attatching a delegate to every node... however not very elegant.

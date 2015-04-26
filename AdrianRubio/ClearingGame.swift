@@ -11,7 +11,7 @@ import UIKit
 
 extension ClearingGame
 {
-    func shuffleNodes(inout nodes:[ARClearingNode],inRect rect:CGRect)
+    func shuffleNodes(nodes:[ARClearingNode],inRect rect:CGRect)
     {
         let inset:CGFloat = 100
         let insetRect = CGRectInset(rect, inset, inset)
@@ -22,9 +22,11 @@ extension ClearingGame
             i.center = CGPoint(x: randX, y: randY)
         }
     }
+    
+    
 }
 
-class ClearingGame: GameViewController {
+class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
     
     let nodeRadius:CGFloat = 20
     let nodeCount = 7
@@ -36,43 +38,74 @@ class ClearingGame: GameViewController {
         super.viewDidLoad()
         
         self.animator = UIDynamicAnimator(referenceView: self.view)
-
-        let swiper = UIPanGestureRecognizer(target: self, action: "swiped:")
         
-        self.view.addGestureRecognizer(swiper)
-
-
         for i in 0..<self.nodeCount {
-            
             let n = ARClearingNode(radius: self.nodeRadius, center: CGPointZero)
+            
+            let swiper = UIPanGestureRecognizer(target: self, action: "swiped:")
+            n.addGestureRecognizer(swiper)
+            
             self.nodes.append(n)
             self.view.addSubview(n)
         }
         
-        self.shuffleNodes(&self.nodes, inRect: self.view.frame)
-
-        self.pusher = UIPushBehavior(items: self.nodes , mode: UIPushBehaviorMode.Instantaneous)
-        self.animator.addBehavior(pusher)
+        self.shuffleNodes(self.nodes, inRect: self.view.frame)
         
-
+        for i in self.nodes {
+            let pusher = UIPushBehavior(items: [i] , mode: UIPushBehaviorMode.Instantaneous)
+            i.pusher = pusher
+            self.animator.addBehavior(pusher)
+        }
         
         let collisionBehavior = UICollisionBehavior(items: self.nodes)
-        collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+        
+        let path = UIBezierPath(rect: CGRectInset(self.view.frame, -self.nodeRadius*2, -self.nodeRadius*2))
+        
+        collisionBehavior.addBoundaryWithIdentifier("boundary", forPath: path)
+        collisionBehavior.collisionDelegate = self
         
         self.animator.addBehavior(collisionBehavior)
         
     }
     
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
+        
+        if "boundary" == (identifier as! String)
+        {
+            let v = item as! ARClearingNode
+            v.removeFromSuperview()
+            
+            if let i = find(self.nodes, v)
+            {
+                self.nodes.removeAtIndex(i)
+                if self.nodes.isEmpty
+                {
+                    self.challengeWon()
+                }
+            }
+            
+        }
+        
+    }
+    
     func swiped(sender:UIPanGestureRecognizer) {
         
-        //print("dhkas")
-        let v = sender.velocityInView(self.view)
-        //let node = sender.view as! ARClearingNode
-        self.pusher.pushDirection = CGVectorMake(v.x, v.y)
-        self.pusher.magnitude = 0.1
-        self.pusher.active = true
-
-        
+        if sender.state == UIGestureRecognizerState.Ended {
+            
+            let v = sender.velocityInView(self.view)
+            let node = sender.view as! ARClearingNode
+            
+            node.pusher.pushDirection = CGVectorMake(v.x, v.y)
+            
+            let hyp = sqrt(v.x*v.x + v.y*v.y)
+            node.pusher.magnitude = hyp/7000
+            node.pusher.active = true
+            
+        }
+    }
+    
+    override func challengeWon() {
+        print("WON")
     }
     
 }

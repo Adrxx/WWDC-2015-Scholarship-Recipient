@@ -11,9 +11,11 @@ import UIKit
 import Darwin
 
 class InflatingGame: GameViewController {
-
+    
+    let nodeColor = UIColor(red:0.44, green:0.54, blue:0.75, alpha:1.0)
+    let bgColor = UIColor(red:0.29, green:0.36, blue:0.5, alpha:1.0)
+    
     var arnode:ARInflatingNode!
-
     var animator:UIDynamicAnimator!
     var gravityMapper:ARInflatingNode.mapper!
     var pusher:UIPushBehavior!
@@ -22,6 +24,7 @@ class InflatingGame: GameViewController {
         
         super.viewDidLoad()
         
+        self.view.backgroundColor = self.bgColor
         
         let clue = self.generateClue("Inflate",color: UIColor.blackColor())
         clue.alpha = 0.0
@@ -34,7 +37,9 @@ class InflatingGame: GameViewController {
         
         
         let hypotenuse = sqrt(pow(self.view.frame.height/2, 2) + pow(self.view.frame.width/2,2))
+        
         self.arnode = ARInflatingNode(inflation: 45, goal: hypotenuse, center: CGPoint(x: CGRectGetMidX(self.view.frame), y: CGRectGetMidY(self.view.frame)))
+        self.arnode.backgroundColor = self.nodeColor
         
         self.arnode.gameViewController = self
         self.view.addSubview(self.arnode)

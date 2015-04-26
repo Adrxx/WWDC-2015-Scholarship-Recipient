@@ -11,7 +11,8 @@ import UIKit
 
 class ARClearingNode: ARNode {
     
-    var pusher:UIPushBehavior!
+    weak var pusher:UIPushBehavior!
+
     
     override init(radius: CGFloat, center: CGPoint) {
         super.init(radius: radius, center: center)

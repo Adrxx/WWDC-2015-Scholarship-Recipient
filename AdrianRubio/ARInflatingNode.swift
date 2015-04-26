@@ -63,7 +63,6 @@ class ARInflatingNode: ARNode {
         self.inflation = inflation
         self.baseInflation = inflation
         super.init(radius: inflation, center: center)
-        self.backgroundColor = UIColor.darkGrayColor()
     }
 
     required init(coder aDecoder: NSCoder) {

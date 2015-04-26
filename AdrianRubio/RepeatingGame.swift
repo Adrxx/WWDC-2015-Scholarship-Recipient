@@ -14,7 +14,7 @@ let SEPARATION_SIZE:CGFloat = 100
 
 extension RepeatingGame {
     
-    private func alignNodesInLine(inout items:[ARRepeatingNode],center: CGPoint,separation: CGFloat) {
+    private func alignNodesInLine(items:[ARRepeatingNode],center: CGPoint,separation: CGFloat) {
         let offset = (separation * CGFloat(items.count-1))/2
         for i in enumerate(items) {
             
@@ -51,11 +51,10 @@ class RepeatingGame : GameViewController {
     let delayBetweenFlashes:Double = 0.5
     let delayBeforePlaying: Double = 0.7
     let sequenceLenght = 7
-    var sequence = [Int]()
     
+    var sequence = [Int]()
     var sequenceCurrentLimit = 0
     var currentStep = 0
-    
     
     var nodes:[ARRepeatingNode] = []
     
@@ -71,7 +70,7 @@ class RepeatingGame : GameViewController {
             self.view.addSubview(n)
         }
         
-        self.alignNodesInLine(&self.nodes, center:self.view.center, separation: nodeSeparation)
+        self.alignNodesInLine(self.nodes, center:self.view.center, separation: nodeSeparation)
         self.restartGame()
     }
     

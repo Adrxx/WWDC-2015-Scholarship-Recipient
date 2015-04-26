@@ -49,16 +49,36 @@ class Story {
 class StoryViewController: UIViewController, UIScrollViewDelegate {
     
     var storyFile:String! //SET AT RUNTIME IN STORYBOARD
-    var story:Story?{
-        didSet
-        {
-            self.generateStory()
-        }
-    }
+    var story:Story?
     var pageViews = [PageView]()
     
     override func viewDidLoad() {
+        
         self.story = Story(fileName: self.storyFile)
+        self.generateStory()
+        
+    }
+    
+    private func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let scrollView = self.view as! UIScrollView
+        scrollView.setContentOffset(CGPoint(x: 0, y: -self.view.frame.height), animated: false)
+        
+        self.view.userInteractionEnabled = false
+        delay(0.2, closure: { () -> () in
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            self.view.userInteractionEnabled = true
+
+        })
         
     }
     
@@ -72,12 +92,13 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
             p.updateProgressValue(progress - CGFloat(i))
         }
         
-        if progress > (CGFloat(self.pageViews.count) - 0.8)
+        //If reaches the end of the story
+        if progress >= CGFloat(self.pageViews.count)
         {
-            self.view.backgroundColor = UIColor.redColor()
-            
+            scrollView.bounces = false
             self.toNextGame()
         }
+        
     }
     
     func generateStory() {
@@ -85,25 +106,37 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
         if let s = self.story
         {
             let scrollView = self.view as! UIScrollView
-            scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * CGFloat(s.pages.count) )
+            scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * CGFloat(s.pages.count+1) )
             scrollView.pagingEnabled = true
             scrollView.delegate = self
             scrollView.showsVerticalScrollIndicator = false
             
-            for i in 0..<s.pages.count
+            for i in 0..<s.pages.count+1
             {
-                let p = s.pages[i]
-                
                 let pageRect = CGRect(
                     x: 0,
                     y: CGFloat(i) * scrollView.frame.height,
                     width: scrollView.frame.width,
                     height: scrollView.frame.height)
                 
-                let pageView = PageView(frame: pageRect, storyText: p.storyText, imageFileName: p.imageFileName)
+                if i < s.pages.count {
+                    let p = s.pages[i]
+                    
+                    let pageView = PageView(frame: pageRect, storyText: p.storyText, imageFileName: p.imageFileName)
+                    
+                    self.pageViews.append(pageView)
+                    scrollView.addSubview(pageView)
+                }
+                else
+                {
+                    let finalView = UIView(frame: pageRect)
+                    finalView.backgroundColor = UIColor.redColor()
+                    
+                    //self.pageViews.append(finalView)
+                    scrollView.addSubview(finalView)
+                    
+                }
                 
-                self.pageViews.append(pageView)
-                scrollView.addSubview(pageView)
             }
             
             
