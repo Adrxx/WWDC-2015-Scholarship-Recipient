@@ -174,8 +174,8 @@
 			children = (
 				3AE294411AE31B790075FCB8 /* ARNode.swift */,
 				3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */,
-				3AF031471AE8775800970BF0 /* ARMixingNode.swift */,
 				3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */,
+				3AF031471AE8775800970BF0 /* ARMixingNode.swift */,
 				3ACB005A1AEAA31300F2429B /* ARRepeatingNode.swift */,
 				3ACB005E1AEAD71E00F2429B /* ARMatchingNode.swift */,
 				3ACB00661AEC7B0700F2429B /* ARPairingNode.swift */,

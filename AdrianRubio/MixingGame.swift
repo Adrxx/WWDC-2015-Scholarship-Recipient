@@ -62,6 +62,9 @@ extension MixingGame
 }
 
 class MixingGame: GameViewController,SKSceneDelegate {
+    
+    let bgColor = UIColor(red:0.13, green:0.18, blue:0.24, alpha:1.0)
+    let clueColor = UIColor.whiteColor()
 
     let blueNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
     let redNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
@@ -72,8 +75,13 @@ class MixingGame: GameViewController,SKSceneDelegate {
         
         let skView = self.view as! SKView
         let scene = SKScene(size: self.view.frame.size)
-        scene.backgroundColor = UIColor.blackColor()
+        scene.backgroundColor = self.bgColor
         scene.delegate = self
+        
+        let clue = self.generateClue("Mix",color:self.clueColor)
+        
+        clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height - clue.frame.size.height/2)
+        self.view.addSubview(clue)
         
         self.blueNode.fillColor = UIColor.blueColor()
         self.blueNode.strokeColor = UIColor.blueColor()

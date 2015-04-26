@@ -17,7 +17,9 @@ let NODE_SIZE:CGFloat = 14
 
 class CatchingGame : GameViewController, SKSceneDelegate {
     
-  
+    let bgColor = UIColor(red:0.72, green:0.56, blue:0.8, alpha:1.0)
+    let clueColor = UIColor.whiteColor()
+    
     var spinningNode:ARCatchingNode!
     var spinningNodeOpposite:ARCatchingNode!
     var scene:SKScene!
@@ -28,7 +30,12 @@ class CatchingGame : GameViewController, SKSceneDelegate {
         let skView = self.view as! SKView
         self.scene = SKScene(size: self.view.frame.size)
         self.scene.delegate = self
-        self.scene.backgroundColor = UIColor.whiteColor()
+        self.scene.backgroundColor = self.bgColor
+        
+        let clue = self.generateClue("Sync",color:self.clueColor)
+        
+        clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
+        self.view.addSubview(clue)
         
         let circlePath = CGPathCreateWithEllipseInRect(CGRect(x: self.scene.frame.width/2 - SPINNING_PATH_RADIUS/2, y: self.scene.frame.height/2 - SPINNING_PATH_RADIUS/2, width: SPINNING_PATH_RADIUS, height: SPINNING_PATH_RADIUS), nil)
 

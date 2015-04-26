@@ -49,14 +49,14 @@ class ARCatchingNode: SKShapeNode {
     
     func setToNeutral()
     {
-        let color = UIColor.blackColor()
+        let color = UIColor(red:0.98, green:0.67, blue:1.0, alpha:1.0)
         self.fillColor = color
         self.strokeColor = color
     }
     
     func setToOn()
     {
-        let color = UIColor.greenColor()
+        let color = UIColor(red:0.64, green:1.0, blue:0.6, alpha:1.0)
         self.fillColor = color
         self.strokeColor = color
 

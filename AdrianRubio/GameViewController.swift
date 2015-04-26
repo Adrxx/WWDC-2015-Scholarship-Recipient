@@ -21,7 +21,11 @@ extension GameViewController
         lab.textColor = color
         lab.textAlignment = NSTextAlignment.Center
         lab.text = text
-
+        
+        UIView.animateWithDuration(5.0, delay: 0.0, options: nil, animations: { () -> Void in
+            lab.alpha = 0.4
+            }, completion: nil)
+        
         return lab
     }
     

@@ -34,8 +34,10 @@ class PageView: UIView {
         self.storyLabel.textAlignment = NSTextAlignment.Center
         //Set label text to story page text
         self.storyLabel.text = storyText
+        self.storyLabel.textColor = UIColor.darkGrayColor()
         
         let font = UIFont(name: "Fira Sans", size: 23)
+        
         self.storyLabel.font = font
         self.addSubview(self.storyLabel)
         

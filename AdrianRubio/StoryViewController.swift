@@ -57,29 +57,36 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
         self.story = Story(fileName: self.storyFile)
         self.generateStory()
         
+        let scrollView = self.view as! UIScrollView
+        scrollView.setContentOffset(CGPoint(x: 0, y: -self.view.frame.height), animated: false)
+        
     }
     
-    private func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let scrollView = self.view as! UIScrollView
         scrollView.setContentOffset(CGPoint(x: 0, y: -self.view.frame.height), animated: false)
         
+        /*
+        
+        private func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+        dispatch_time(
+        DISPATCH_TIME_NOW,
+        Int64(delay * Double(NSEC_PER_SEC))
+        ),
+        dispatch_get_main_queue(), closure)
+        }
+        
         self.view.userInteractionEnabled = false
-        delay(0.2, closure: { () -> () in
+        delay(0.1, closure: { () -> () in
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             self.view.userInteractionEnabled = true
 
         })
-        
+        */
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

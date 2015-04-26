@@ -102,10 +102,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="elJ-eV-qbQ" kind="custom" identifier="toStory" customClass="CustomSegue" customModule="AdrianRubio" customModuleProvider="target" id="2pk-tq-goS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzT-lO-raR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412.5" y="-508.5"/>
+            <point key="canvasLocation" x="3349.5" y="-508.5"/>
         </scene>
         <!--Repeating Game-->
         <scene sceneID="CC8-oX-nwS">
@@ -163,7 +166,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFD-Xf-Wzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1948.5" y="-508.5"/>
+            <point key="canvasLocation" x="-2068.5" y="-868.5"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="Keh-Kt-ilM">

@@ -14,6 +14,7 @@ class InflatingGame: GameViewController {
     
     let nodeColor = UIColor(red:0.44, green:0.54, blue:0.75, alpha:1.0)
     let bgColor = UIColor(red:0.29, green:0.36, blue:0.5, alpha:1.0)
+    let clueColor = UIColor(red:0.52, green:0.67, blue:0.9, alpha:1.0)
     
     var arnode:ARInflatingNode!
     var animator:UIDynamicAnimator!
@@ -26,15 +27,12 @@ class InflatingGame: GameViewController {
         
         self.view.backgroundColor = self.bgColor
         
-        let clue = self.generateClue("Inflate",color: UIColor.blackColor())
-        clue.alpha = 0.0
+        let clue = self.generateClue("Grow",color:self.clueColor)
+        
         clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height - clue.frame.size.height/2)
         self.view.addSubview(clue)
         
-        UIView.animateWithDuration(5.0, delay: 6.0, options: nil, animations: { () -> Void in
-            clue.alpha = 0.4
-            }, completion: nil)
-        
+
         
         let hypotenuse = sqrt(pow(self.view.frame.height/2, 2) + pow(self.view.frame.width/2,2))
         
@@ -102,6 +100,14 @@ class InflatingGame: GameViewController {
         self.animator.removeAllBehaviors()
         self.transitionToStory()
     }
+    
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let d = segue.destinationViewController as! UIViewController
+        d.view.backgroundColor = self.nodeColor
+    }
+*/
     
 
     

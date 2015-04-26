@@ -24,15 +24,20 @@ extension MatchingGame {
 
 
 class MatchingGame: GameViewController {
+    
+    
+    let bgColor = UIColor(red:0.07, green:0.09, blue:0.09, alpha:1.0)
+    let nodeSize:CGFloat = 25
     let nodeSeparation:CGFloat = 80.0
     var nodes = [ARMatchingNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = self.bgColor
         
         // Six nodes in this level
         for i in 0..<6 {
-            let n = ARMatchingNode(radius: 20, center: CGPointZero)
+            let n = ARMatchingNode(radius: self.nodeSize, center: CGPointZero)
             self.nodes.append(n)
             self.view.addSubview(n)
         }
@@ -70,7 +75,14 @@ class MatchingGame: GameViewController {
     
     override func challengeWon() {
         
-        print("das")
-        //self.transitionToStory()
+        UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 2.0, options: nil, animations: { () -> Void in
+            for i in self.nodes
+            {
+                i.center = self.view.center
+            }
+            }) { (finished: Bool) -> Void in
+                self.transitionToStory()
+        }
+        
     }
 }

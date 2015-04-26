@@ -45,12 +45,21 @@ extension RepeatingGame {
 
 class RepeatingGame : GameViewController {
     
+    let bgColor = UIColor(red:0.73, green:0.86, blue:0.85, alpha:1.0)
+    let mistakeColor = UIColor(red:0.79, green:0.07, blue:0.0, alpha:1.0)
+    
     let nodeCount = 4
+    let nodeColors = [
+        UIColor(red:0.9, green:0.69, blue:0.13, alpha:1.0),
+        UIColor(red:0.28, green:0.53, blue:0.8, alpha:1.0),
+        UIColor(red:0.9, green:0.19, blue:0.32, alpha:1.0),
+        UIColor(red:0.27, green:0.7, blue:0.46, alpha:1.0)
+    ]
     let NODE_RADIUS:CGFloat = 30
     let nodeSeparation:CGFloat = 100
     let delayBetweenFlashes:Double = 0.5
     let delayBeforePlaying: Double = 0.7
-    let sequenceLenght = 7
+    let sequenceLenght = 6
     
     var sequence = [Int]()
     var sequenceCurrentLimit = 0
@@ -61,9 +70,11 @@ class RepeatingGame : GameViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = self.bgColor
         // Four nodes in this level
         for i in 0..<nodeCount {
-            let n = ARRepeatingNode(radius: NODE_RADIUS, center: CGPointZero)
+            let n = ARRepeatingNode(radius: NODE_RADIUS, center: CGPointZero,color: self.nodeColors[i])
             n.identifier = i
             n.gameController = self
             self.nodes.append(n)
@@ -135,10 +146,10 @@ class RepeatingGame : GameViewController {
     func mistake()
     {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.view.backgroundColor = UIColor.redColor()
+            self.view.backgroundColor = self.mistakeColor
             }) { (finished: Bool) -> Void in
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    self.view.backgroundColor = UIColor.whiteColor()
+                    self.view.backgroundColor = self.bgColor
                 })
         }
     }
