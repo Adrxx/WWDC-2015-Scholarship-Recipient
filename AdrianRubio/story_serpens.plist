@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>story</key>
+		<string>My highschool had a nice library, there were lots of great books there. But there was a hallway that had every book you would imagine about programming.
+
+So I read...
+
+Javascript, PHP, C, C++, Objective-C, Java. I wanted to learn them all.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>But I soon discovered, the best way to learn something is making mistakes. So I choose C for my first project. Failed a bunch of times, until I managed to create &quot;Serpens&quot;</string>
+		<key>imageFile</key>
+		<string>serpens</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>It was a copy of the classic Snake&apos;s game.
+But it made my programming skills sync with my creativity.
+
+And I loved it.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

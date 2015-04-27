@@ -22,16 +22,6 @@ extension RepeatingGame {
         }
     }
     
-    //Guilty
-    private func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
-    
     private func generateSequence(nodeCount:Int,lenght:Int) -> [Int] {
         var seq = [Int]()
         for i in 0..<lenght
@@ -45,6 +35,7 @@ extension RepeatingGame {
 
 class RepeatingGame : GameViewController {
     
+    let clueColor = UIColor.blackColor()
     let bgColor = UIColor(red:0.73, green:0.86, blue:0.85, alpha:1.0)
     let mistakeColor = UIColor(red:0.79, green:0.07, blue:0.0, alpha:1.0)
     
@@ -72,6 +63,16 @@ class RepeatingGame : GameViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = self.bgColor
+        
+        let clue = self.generateClue("Repeat",color:self.clueColor)
+        clue.numberOfLines = 0
+        clue.lineBreakMode = NSLineBreakMode.ByCharWrapping
+        clue.frame.size.width = 40
+        clue.frame.size.height = 300
+        clue.center = CGPoint(x: self.view.frame.width/2 + 80 , y: self.view.frame.height/2)
+        
+        self.view.addSubview(clue)
+        
         // Four nodes in this level
         for i in 0..<nodeCount {
             let n = ARRepeatingNode(radius: NODE_RADIUS, center: CGPointZero,color: self.nodeColors[i])
@@ -154,9 +155,11 @@ class RepeatingGame : GameViewController {
         }
     }
     
-    override func challengeWon() {
-        
-        self.transitionToStory()
-    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let d = segue.destinationViewController as! StoryViewController
+        d.endingColor =  UIColor(red:0.07, green:0.09, blue:0.09, alpha:1.0)
+        
+    }
 }

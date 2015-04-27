@@ -4,21 +4,56 @@
 <array>
 	<dict>
 		<key>story</key>
-		<string>It&apos;s such a cold world</string>
+		<string>I&apos;m Adrián Rubio Morlote.
+I&apos;m from Mexico City.
+
+I was born to be a developer...
+</string>
 		<key>imageFile</key>
-		<string>night</string>
+		<string></string>
 	</dict>
 	<dict>
 		<key>story</key>
-		<string>Hello, cold world</string>
+		<string>At age 13, my father gave me an iPod Touch, I could say that&apos;s where it all started, but my fascination for technology comes from way before that.
+
+Surfing the web, I found out people &quot;hacked&quot; their iPhones/iPods to have all kinds of goodies. It was a whole community.
+
+So I couln&apos;t resist.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>They made all kind of things. Apps, tweaks, themes... I wanted to be part of it.
+    
+But I didn&apos;t know a thing about making apps.
+
+So I learned how to use Photoshop by myself and I made a few themes.
+
+Until I made a theme called &quot;Alit&quot;, which was really popular.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>It was downloaded more than 800,000 times.
+    </string>
+		<key>imageFile</key>
+		<string>downloads</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string></string>
 		<key>imageFile</key>
 		<string>alit</string>
 	</dict>
 	<dict>
 		<key>story</key>
-		<string>But I&apos;ll get right back up, as long as it spins around...</string>
+		<string>But I wanted to grow, I wanted to know how the hell could someone make a bunch of pixels react to a user&apos;s needs.
+
+I wanted to learn how to program something.</string>
 		<key>imageFile</key>
-		<string>hey</string>
+		<string></string>
 	</dict>
 </array>
 </plist>

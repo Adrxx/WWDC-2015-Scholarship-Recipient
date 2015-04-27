@@ -16,7 +16,7 @@ let LABEL_WIDTH:CGFloat = 260
 class PageView: UIView {
     
     var storyLabel:UILabel!
-    var imageView:UIImageView!
+    var imageView:UIImageView?
     
     init(frame: CGRect, storyText: String, imageFileName:String) {
         super.init(frame: frame)
@@ -35,29 +35,49 @@ class PageView: UIView {
         //Set label text to story page text
         self.storyLabel.text = storyText
         self.storyLabel.textColor = UIColor.darkGrayColor()
-        
-        let font = UIFont(name: "Fira Sans", size: 23)
+    
+        let font = UIFont(name: "Fira Sans", size: 17)
+
         
         self.storyLabel.font = font
         self.addSubview(self.storyLabel)
         
-        let imageRect = CGRect(
-            x: 0,
-            y: labelRect.height,
-            width: self.frame.width * IMAGE_RADIUS_PROPORTION,
-            height: self.frame.width * IMAGE_RADIUS_PROPORTION)
+        if !imageFileName.isEmpty {
+            
+            let imageRect = CGRect(
+                x: 0,
+                y: labelRect.height,
+                width: self.frame.width * IMAGE_RADIUS_PROPORTION,
+                height: self.frame.width * IMAGE_RADIUS_PROPORTION)
+            
+            self.imageView = UIImageView(frame: imageRect)
+            
+            let unwrappedImageView = self.imageView!
+            unwrappedImageView.center.x = self.frame.width/2
+            unwrappedImageView.center.y -= 50
+            unwrappedImageView.layer.cornerRadius = unwrappedImageView.frame.width/2
+            unwrappedImageView.clipsToBounds = true;
+            unwrappedImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            
+            let image = UIImage(named: imageFileName)
+            unwrappedImageView.image = image
+            unwrappedImageView.backgroundColor = UIColor.redColor()
+            
+            self.addSubview(unwrappedImageView)
+            
+            if storyText.isEmpty
+            {
+                unwrappedImageView.center = CGPoint(x: CGRectGetMidX(self.bounds), y: CGRectGetMidY(self.bounds))
+            }
+            
+        }
+        else
+        {
+            self.storyLabel.frame.size.height = self.frame.height
+            self.storyLabel.center = CGPoint(x: CGRectGetMidX(self.bounds), y: CGRectGetMidY(self.bounds))
+        }
         
-        self.imageView = UIImageView(frame: imageRect)
-        self.imageView.center.x = self.frame.width/2
-        self.imageView.layer.cornerRadius = self.imageView.frame.width/2
-        self.imageView.clipsToBounds = true;
-        self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        let image = UIImage(named: imageFileName)
-        self.imageView.image = image
-        self.imageView.backgroundColor = UIColor.redColor()
-        
-        self.addSubview(self.imageView)
+
         
         
     }
@@ -90,13 +110,16 @@ class PageView: UIView {
         let maxImageRadius = self.frame.width * IMAGE_RADIUS_PROPORTION
         
         let radius = max(30, maxImageRadius*val)
-        let lastCenter = self.imageView.center
-        self.imageView.frame = CGRect(origin: self.imageView.frame.origin, size: CGSize(
-            width: radius,
-            height: radius))
-        self.imageView.layer.cornerRadius = radius/2
-
-        self.imageView.center = lastCenter
+        
+        if let imgView = self.imageView {
+            let lastCenter = imgView.center
+            imgView.frame = CGRect(origin: imgView.frame.origin, size: CGSize(
+                width: radius,
+                height: radius))
+            imgView.layer.cornerRadius = radius/2
+            
+            imgView.center = lastCenter
+        }
         
         
     }

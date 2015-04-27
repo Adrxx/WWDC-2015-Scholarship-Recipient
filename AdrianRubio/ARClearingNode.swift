@@ -12,12 +12,14 @@ import UIKit
 class ARClearingNode: ARNode {
     
     weak var pusher:UIPushBehavior!
+    
+    
 
     
     override init(radius: CGFloat, center: CGPoint) {
         super.init(radius: radius, center: center)
         
-        self.backgroundColor = UIColor.brownColor()
+        self.backgroundColor = UIColor(red:0.81, green:0.93, blue:0.59, alpha:1.0)
         
     }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>story</key>
+		<string>Besides programming I also like many other things.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+  <dict>
+    <key>story</key>
+    <string>I like my friends.</string>
+    <key>imageFile</key>
+    <string>friends</string>
+  </dict>
+  <dict>
+    <key>story</key>
+    <string>I like my girlfriend.</string>
+    <key>imageFile</key>
+    <string>fer</string>
+  </dict>
+	<dict>
+		<key>story</key>
+		<string>I like graphic design.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+  <dict>
+    <key>story</key>
+    <string>I like singing.</string>
+    <key>imageFile</key>
+    <string></string>
+  </dict>
+  <dict>
+    <key>story</key>
+    <string>And I never say no to a chess match.</string>
+    <key>imageFile</key>
+    <string></string>
+  </dict>
+</array>
+</plist>

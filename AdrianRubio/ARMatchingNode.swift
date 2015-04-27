@@ -14,10 +14,10 @@ class ARMatchingNode: ARNode {
     let animationDuration = 0.4
     
     let colors = [
-        UIColor(red:0.06, green:0.44, blue:0.59, alpha:1.0),
-        UIColor(red:0.79, green:0.0, blue:0.16, alpha:1.0),
-        UIColor(red:0.88, green:0.76, blue:0.01, alpha:1.0),
-        UIColor(red:0.03, green:0.84, blue:0.51, alpha:1.0)
+       UIColor(red:0.89, green:0.97, blue:0.61, alpha:1.0),
+        UIColor(red:0.95, green:0.51, blue:0.71, alpha:1.0),
+        UIColor(red:0.25, green:0.49, blue:0.67, alpha:1.0),
+        UIColor(red:0.59, green:0.01, blue:0.1, alpha:1.0)
     ]
     
     var colorIndex = 0 {

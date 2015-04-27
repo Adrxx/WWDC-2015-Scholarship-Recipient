@@ -161,12 +161,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Znn-zD-CxM" kind="relationship" relationship="rootViewController" id="d1u-EZ-O5Q"/>
+                        <segue destination="Znn-zD-CxM" kind="relationship" relationship="rootViewController" id="qmN-DD-oKp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFD-Xf-Wzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2068.5" y="-868.5"/>
+            <point key="canvasLocation" x="-2107" y="-841"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="Keh-Kt-ilM">
@@ -208,7 +208,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YQd-3X-4d2"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_alit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_serpens"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="N47-yQ-UBt" kind="custom" identifier="toNextGame" customClass="CustomSegue" customModule="AdrianRubio" customModuleProvider="target" id="e82-zh-qDb"/>
@@ -233,7 +233,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jka-MZ-tJ7"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_alit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_beca"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="e3c-tU-4o0" kind="custom" identifier="toNextGame" customClass="CustomSegue" customModule="AdrianRubio" customModuleProvider="target" id="Ooa-q2-QM3"/>
@@ -258,7 +258,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9NI-BC-sYX"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_alit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_likes"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="DsJ-uD-orz" kind="custom" identifier="toNextGame" customClass="CustomSegue" customModule="AdrianRubio" customModuleProvider="target" id="vA4-C9-DSV"/>
@@ -283,7 +283,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0EG-xl-LDT"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_alit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_ment"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="MyN-6u-2BK" kind="custom" identifier="toNextGame" customClass="CustomSegue" customModule="AdrianRubio" customModuleProvider="target" id="IIy-xt-iYf"/>
@@ -308,7 +308,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="oW2-EC-qCi"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_alit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_buluk"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="bBj-ra-dvI" kind="custom" identifier="toNextGame" customClass="CustomSegue" customModule="AdrianRubio" customModuleProvider="target" id="GcC-Z5-LIj"/>
@@ -333,12 +333,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="iFz-Fv-ceU"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_alit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyFile" value="story_end"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5A-p7-AFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3505.5" y="-1266"/>
+            <point key="canvasLocation" x="3622" y="-1312"/>
         </scene>
     </scenes>
 </document>

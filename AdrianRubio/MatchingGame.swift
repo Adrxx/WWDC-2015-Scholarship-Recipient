@@ -25,7 +25,7 @@ extension MatchingGame {
 
 class MatchingGame: GameViewController {
     
-    
+    let clueColor = UIColor.whiteColor()
     let bgColor = UIColor(red:0.07, green:0.09, blue:0.09, alpha:1.0)
     let nodeSize:CGFloat = 25
     let nodeSeparation:CGFloat = 80.0
@@ -35,8 +35,17 @@ class MatchingGame: GameViewController {
         super.viewDidLoad()
         self.view.backgroundColor = self.bgColor
         
-        // Six nodes in this level
-        for i in 0..<6 {
+        let clue = self.generateClue("Match",color:self.clueColor)
+        clue.numberOfLines = 0
+        clue.lineBreakMode = NSLineBreakMode.ByCharWrapping
+        clue.frame.size.width = 40
+        clue.frame.size.height = 300
+        clue.center = CGPoint(x: self.view.frame.width/2 - 80 , y: self.view.frame.height/2)
+        
+        self.view.addSubview(clue)
+        
+        // 5 nodes in this level
+        for i in 0..<5 {
             let n = ARMatchingNode(radius: self.nodeSize, center: CGPointZero)
             self.nodes.append(n)
             self.view.addSubview(n)
@@ -73,16 +82,10 @@ class MatchingGame: GameViewController {
     }
     
     
-    override func challengeWon() {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 2.0, options: nil, animations: { () -> Void in
-            for i in self.nodes
-            {
-                i.center = self.view.center
-            }
-            }) { (finished: Bool) -> Void in
-                self.transitionToStory()
-        }
+        let d = segue.destinationViewController as! StoryViewController
+        d.endingColor =  UIColor.darkGrayColor()
         
     }
 }

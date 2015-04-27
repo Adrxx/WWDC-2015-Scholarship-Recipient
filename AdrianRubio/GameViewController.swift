@@ -12,21 +12,34 @@ import SceneKit
 
 extension GameViewController
 {
+    
+    
     func generateClue(text: String,color: UIColor) -> UILabel
     {
         let font = UIFont(name: "Perfograma", size: 35)
         let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 180))
         lab.font = font
+        
         lab.alpha = 0.0
         lab.textColor = color
         lab.textAlignment = NSTextAlignment.Center
         lab.text = text
         
         UIView.animateWithDuration(5.0, delay: 0.0, options: nil, animations: { () -> Void in
-            lab.alpha = 0.4
+            lab.alpha = 0.6
             }, completion: nil)
         
         return lab
+    }
+    
+    //Guilty
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
 }
@@ -35,17 +48,12 @@ class GameViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //let scnView = self.view as! SCNView
-        //scnView.scene = PolygonBackground()
-        //scnView.backgroundColor = UIColor.blackColor()
-        
     }
     
-    //Subclasses must override
+    //Subclasses can override
     func challengeWon()
     {
-        assert(false, "Please override me.")
+        self.transitionToStory()
     }
     
     func transitionToStory()

@@ -12,11 +12,16 @@
 		3A0C1B3B1AE199F100D718CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B391AE199F100D718CE /* Main.storyboard */; };
 		3A0C1B3D1AE199F100D718CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C1B3C1AE199F100D718CE /* Images.xcassets */; };
 		3A0C1B4C1AE199F100D718CE /* AdrianRubioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C1B4B1AE199F100D718CE /* AdrianRubioTests.swift */; };
+		3A35CD3C1AED9F780091F003 /* story_beca.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A35CD3A1AED9F780091F003 /* story_beca.plist */; };
+		3A35CD3D1AED9F780091F003 /* story_ment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A35CD3B1AED9F780091F003 /* story_ment.plist */; };
+		3A35CD3F1AEDA3FF0091F003 /* story_likes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A35CD3E1AEDA3FF0091F003 /* story_likes.plist */; };
+		3A35CD411AEDA6DB0091F003 /* story_buluk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A35CD401AEDA6DB0091F003 /* story_buluk.plist */; };
+		3A35CD431AEDA9FE0091F003 /* story_end.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A35CD421AEDA9FE0091F003 /* story_end.plist */; };
 		3A476E631AE8A4510036B5CE /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A476E621AE8A4510036B5CE /* PageView.swift */; };
 		3A476E671AE8C0B40036B5CE /* FiraSans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A476E661AE8C0B40036B5CE /* FiraSans.otf */; };
 		3A4D524D1AE6975000395D77 /* ARInflatingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */; };
 		3A4D52511AE69E2400395D77 /* InflatingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D52501AE69E2400395D77 /* InflatingGame.swift */; };
-		3A9675E31AE9E26B0093533A /* story_ment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9675E21AE9E26B0093533A /* story_ment.plist */; };
+		3A9675E31AE9E26B0093533A /* story_serpens.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9675E21AE9E26B0093533A /* story_serpens.plist */; };
 		3AA5EE501AE9395C00DFFF8E /* CatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE4F1AE9395C00DFFF8E /* CatchingGame.swift */; };
 		3AA5EE521AE93A1300DFFF8E /* ARCatchingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */; };
 		3AA5EE5A1AE94A0500DFFF8E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5EE591AE94A0500DFFF8E /* CustomSegue.swift */; };
@@ -60,11 +65,16 @@
 		3A0C1B451AE199F100D718CE /* AdrianRubioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdrianRubioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0C1B4A1AE199F100D718CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A0C1B4B1AE199F100D718CE /* AdrianRubioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdrianRubioTests.swift; sourceTree = "<group>"; };
+		3A35CD3A1AED9F780091F003 /* story_beca.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_beca.plist; sourceTree = "<group>"; };
+		3A35CD3B1AED9F780091F003 /* story_ment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_ment.plist; sourceTree = "<group>"; };
+		3A35CD3E1AEDA3FF0091F003 /* story_likes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_likes.plist; sourceTree = "<group>"; };
+		3A35CD401AEDA6DB0091F003 /* story_buluk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_buluk.plist; sourceTree = "<group>"; };
+		3A35CD421AEDA9FE0091F003 /* story_end.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_end.plist; sourceTree = "<group>"; };
 		3A476E621AE8A4510036B5CE /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		3A476E661AE8C0B40036B5CE /* FiraSans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FiraSans.otf; sourceTree = "<group>"; };
 		3A4D524C1AE6975000395D77 /* ARInflatingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARInflatingNode.swift; sourceTree = "<group>"; };
 		3A4D52501AE69E2400395D77 /* InflatingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflatingGame.swift; sourceTree = "<group>"; };
-		3A9675E21AE9E26B0093533A /* story_ment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_ment.plist; sourceTree = "<group>"; };
+		3A9675E21AE9E26B0093533A /* story_serpens.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = story_serpens.plist; sourceTree = "<group>"; };
 		3AA5EE4F1AE9395C00DFFF8E /* CatchingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatchingGame.swift; sourceTree = "<group>"; };
 		3AA5EE511AE93A1300DFFF8E /* ARCatchingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARCatchingNode.swift; sourceTree = "<group>"; };
 		3AA5EE591AE94A0500DFFF8E /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
@@ -145,7 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				3A0C1B311AE199F100D718CE /* AppDelegate.swift */,
-				3A9675E21AE9E26B0093533A /* story_ment.plist */,
+				3A35CD421AEDA9FE0091F003 /* story_end.plist */,
+				3A35CD401AEDA6DB0091F003 /* story_buluk.plist */,
+				3A35CD3E1AEDA3FF0091F003 /* story_likes.plist */,
+				3A35CD3A1AED9F780091F003 /* story_beca.plist */,
+				3A35CD3B1AED9F780091F003 /* story_ment.plist */,
+				3A9675E21AE9E26B0093533A /* story_serpens.plist */,
 				3AF0314D1AE8858400970BF0 /* story_alit.plist */,
 				3A0C1B301AE199F100D718CE /* Info.plist */,
 			);
@@ -289,13 +304,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A35CD431AEDA9FE0091F003 /* story_end.plist in Resources */,
+				3A35CD3D1AED9F780091F003 /* story_ment.plist in Resources */,
+				3A35CD411AEDA6DB0091F003 /* story_buluk.plist in Resources */,
 				3ACB00531AEA12F000F2429B /* LaunchScreen.xib in Resources */,
 				3AF031441AE847D400970BF0 /* Perfograma.otf in Resources */,
 				3A476E671AE8C0B40036B5CE /* FiraSans.otf in Resources */,
-				3A9675E31AE9E26B0093533A /* story_ment.plist in Resources */,
+				3A9675E31AE9E26B0093533A /* story_serpens.plist in Resources */,
 				3AF0314E1AE8858400970BF0 /* story_alit.plist in Resources */,
+				3A35CD3C1AED9F780091F003 /* story_beca.plist in Resources */,
 				3A0C1B3D1AE199F100D718CE /* Images.xcassets in Resources */,
 				3A0C1B3B1AE199F100D718CE /* Main.storyboard in Resources */,
+				3A35CD3F1AEDA3FF0091F003 /* story_likes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +488,7 @@
 				INFOPLIST_FILE = AdrianRubio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AdrianRubio;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -483,7 +503,7 @@
 				INFOPLIST_FILE = AdrianRubio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AdrianRubio;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -503,7 +523,7 @@
 				);
 				INFOPLIST_FILE = AdrianRubioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AdrianRubioTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdrianRubio.app/AdrianRubio";
 			};
 			name = Debug;
@@ -518,7 +538,7 @@
 				);
 				INFOPLIST_FILE = AdrianRubioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AdrianRubioTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdrianRubio.app/AdrianRubio";
 			};
 			name = Release;

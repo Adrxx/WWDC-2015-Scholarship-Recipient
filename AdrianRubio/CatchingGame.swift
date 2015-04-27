@@ -11,9 +11,9 @@ import UIKit
 import SpriteKit
 
 let SPINNING_PATH_RADIUS:CGFloat = 220
-let NODE_SPIN_DURATION = 0.72
-let NODE_SPIN_DURATION_OPPOSITE = 1.05
-let NODE_SIZE:CGFloat = 14
+let NODE_SPIN_DURATION = 1.02
+let NODE_SPIN_DURATION_OPPOSITE = 1.35
+let NODE_SIZE:CGFloat = 17
 
 class CatchingGame : GameViewController, SKSceneDelegate {
     
@@ -42,8 +42,6 @@ class CatchingGame : GameViewController, SKSceneDelegate {
         //Spinning Node
         let followPath = SKAction.followPath(circlePath, asOffset: false, orientToPath: false, duration: NODE_SPIN_DURATION)
         
-        //followPath.timingMode = SKActionTimingMode.EaseInEaseOut
-
         
         self.spinningNode = ARCatchingNode(circleOfRadius: NODE_SIZE)
         self.spinningNode.runAction(SKAction.repeatActionForever(followPath))
@@ -63,7 +61,11 @@ class CatchingGame : GameViewController, SKSceneDelegate {
     
     func update(currentTime: NSTimeInterval, forScene scene: SKScene) {
         
-        if CGRectIntersectsRect(self.spinningNodeOpposite.frame, self.spinningNode.frame)
+        let intersects = CGRectContainsPoint(
+            self.spinningNode.frame,
+            self.spinningNodeOpposite.position)
+
+        if intersects
         {
             self.spinningNode.state = ARCatchingNode.nodeState.On
             self.spinningNodeOpposite.state = ARCatchingNode.nodeState.On
@@ -79,16 +81,40 @@ class CatchingGame : GameViewController, SKSceneDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
         
-        if CGRectIntersectsRect(self.spinningNodeOpposite.frame, self.spinningNode.frame) {
-            self.challengeWon()
-        }
         
+        let intersects = CGRectContainsPoint(
+            self.spinningNode.frame,
+            self.spinningNodeOpposite.position)
+        
+        
+        //TOO HARD
+        /*
+        for touch: AnyObject in touches {
+            let location = touch.locationInNode(self.scene)
+            if (intersects &&
+                (CGRectContainsPoint(self.spinningNode.frame, location) || CGRectContainsPoint(self.spinningNodeOpposite.frame, location))) {
+                self.challengeWon()
+                
+            }
+
+        }
+*/
+        
+        if (intersects) {
+                self.challengeWon()
+        }
+
+        
+
     }
     
-    override func challengeWon() {
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        
-        self.transitionToStory()
+        let d = segue.destinationViewController as! StoryViewController
+        d.endingColor =  UIColor(red:0.13, green:0.18, blue:0.24, alpha:1.0)
     }
+    
+
     
 }

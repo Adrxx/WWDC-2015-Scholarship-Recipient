@@ -4,21 +4,46 @@
 <array>
 	<dict>
 		<key>story</key>
-		<string>It&apos;s such a cold world</string>
+		<string>I&apos;m lucky, I never doubted computer programming was my passion, so I didn&apos;t have any trouble choosing my career. Neither did my other two friends.
+
+We were also pretty sure we wanted to make a company.</string>
 		<key>imageFile</key>
-		<string>night</string>
+		<string>ment</string>
 	</dict>
 	<dict>
 		<key>story</key>
-		<string>Hello, cold world</string>
+		<string>So we did. We made a company that creates smart media.
+
+Apps, web aplications... software.
+
+But we focus on making that software not just functional, but also visually attractive and with a purpose. We want our software to give other companies a real competitive value.
+</string>
 		<key>imageFile</key>
-		<string>alit</string>
+		<string></string>
 	</dict>
 	<dict>
 		<key>story</key>
-		<string>But I&apos;ll get right back up, as long as it spins around...</string>
+		<string>We have had some proyects...</string>
 		<key>imageFile</key>
-		<string>hey</string>
+		<string>union</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string></string>
+		<key>imageFile</key>
+		<string>kinky</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>Some others...</string>
+		<key>imageFile</key>
+		<string>vhda</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>I repeat. I&apos;m Lucky.</string>
+		<key>imageFile</key>
+		<string></string>
 	</dict>
 </array>
 </plist>

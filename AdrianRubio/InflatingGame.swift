@@ -94,20 +94,17 @@ class InflatingGame: GameViewController {
 
     }
     
-    override func challengeWon()
-    {
-        self.arnode.userInteractionEnabled = false
+    override func challengeWon() {
+        super.challengeWon()
         self.animator.removeAllBehaviors()
-        self.transitionToStory()
     }
     
-    /*
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let d = segue.destinationViewController as! UIViewController
-        d.view.backgroundColor = self.nodeColor
+        let d = segue.destinationViewController as! StoryViewController
+        d.endingColor =  UIColor(red:0.72, green:0.56, blue:0.8, alpha:1.0)
     }
-*/
     
 
     

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>story</key>
+		<string>I also enjoy teaching people about programming...</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>I am programming mentor in FRC: First Robotics Competition, where I teached highschool students how to use LabView and how to program in Java.</string>
+		<key>imageFile</key>
+		<string>mentor</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>I love those kids. I even design them their logos.</string>
+		<key>imageFile</key>
+		<string>blogo</string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>I&apos;ve also been asked by some teachers to give special workshops for middle school students about iOS programming in Objective-C.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>I&apos;m trying to master Swift 100% so I can start teaching them.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

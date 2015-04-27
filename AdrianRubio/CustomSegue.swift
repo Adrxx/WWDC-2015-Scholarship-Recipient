@@ -19,7 +19,7 @@ class CustomSegue: UIStoryboardSegue {
             dest.view.alpha = 0
             n!.view.addSubview(dest.view)
             
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animateWithDuration(0.6, animations: { () -> Void in
                 dest.view.alpha = 1
                 }, completion: { (finished:Bool) -> Void in
                 dest.view.removeFromSuperview()

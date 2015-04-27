@@ -13,13 +13,14 @@ extension ClearingGame
 {
     func shuffleNodes(nodes:[ARClearingNode],inRect rect:CGRect)
     {
-        let inset:CGFloat = 100
-        let insetRect = CGRectInset(rect, inset, inset)
+        let insetX:CGFloat =  80
+        let insetY:CGFloat =  40
+        let insetRect = CGRectInset(rect,insetX, insetY)
         for i in nodes {
-            let randX = Int(inset) + Int( arc4random_uniform(CUnsignedInt( insetRect.width )))
-            let randY = Int(inset) + Int( arc4random_uniform(CUnsignedInt( insetRect.height )))
+            let randX =  CGFloat( arc4random_uniform(CUnsignedInt( insetRect.width )))
+            let randY =  CGFloat( arc4random_uniform(CUnsignedInt( insetRect.height )))
             
-            i.center = CGPoint(x: randX, y: randY)
+            i.center = CGPoint(x: randX + insetRect.origin.x , y:  insetRect.origin.y + randY)
         }
     }
     
@@ -27,6 +28,10 @@ extension ClearingGame
 }
 
 class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
+    
+    
+    let clueColor = UIColor(red:0.96, green:0.7, blue:0.58, alpha:1.0)
+    let bgColor = UIColor(red:0.29, green:0.26, blue:0.41, alpha:1.0)
     
     let nodeRadius:CGFloat = 20
     let nodeCount = 7
@@ -36,6 +41,12 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = self.bgColor
+        let clue = self.generateClue("Clear",color:self.clueColor)
+        
+        clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
+        self.view.addSubview(clue)
         
         self.animator = UIDynamicAnimator(referenceView: self.view)
         
@@ -49,7 +60,7 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
             self.view.addSubview(n)
         }
         
-        self.shuffleNodes(self.nodes, inRect: self.view.frame)
+        self.shuffleNodes(self.nodes, inRect: clue.frame)
         
         for i in self.nodes {
             let pusher = UIPushBehavior(items: [i] , mode: UIPushBehaviorMode.Instantaneous)
@@ -98,14 +109,18 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
             node.pusher.pushDirection = CGVectorMake(v.x, v.y)
             
             let hyp = sqrt(v.x*v.x + v.y*v.y)
-            node.pusher.magnitude = hyp/7000
+            node.pusher.magnitude = hyp/6000
             node.pusher.active = true
             
         }
     }
     
-    override func challengeWon() {
-        print("WON")
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let d = segue.destinationViewController as! StoryViewController
+        d.endingColor =  UIColor(red:0.73, green:0.86, blue:0.85, alpha:1.0)
+        
     }
     
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>story</key>
+		<string>One year before college, I had this class called "Entreprenourship". Our final project consisted in making a whole bussines model of anything we wanted. We would then compete with other classes for the best project.
+
+By that time, I considered myself pretty good at Objective-C.</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+  <dict>
+    <key>story</key>
+    <string>The price for winning the contest was a scholarship for a thing called "Company Incubator" where we could have special courses and advisors to help us create our own company.</string>
+    <key>imageFile</key>
+    <string></string>
+  </dict>
+	<dict>
+		<key>story</key>
+		<string>The project didn't really need us to make a physical product, but I wanted to test my skills, and we as a team decided to make an app.
+
+A simple but really cool app about finding where to eat. Where the restaurants would pay to be featured in the app.
+
+I would program, and my two other friends would design experience and plan the buissines model</string>
+		<key>imageFile</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>story</key>
+		<string>Long story short...
+we won.</string>
+		<key>imageFile</key>
+		<string>hotspotdf</string>
+	</dict>
+  <dict>
+    <key>story</key>
+    <string>First price baby.</string>
+    <key>imageFile</key>
+    <string>beca</string>
+  </dict>
+  <dict>
+  <key>story</key>
+  <string>We were thrilled by it. We made an amazing job. My two other friends and I seemed to make a perfect app-making mix.</string>
+    <key>imageFile</key>
+    <string></string>
+  </dict>
+</array>
+</plist>

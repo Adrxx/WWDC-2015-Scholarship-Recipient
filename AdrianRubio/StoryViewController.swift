@@ -51,6 +51,7 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
     var storyFile:String! //SET AT RUNTIME IN STORYBOARD
     var story:Story?
     var pageViews = [PageView]()
+    var endingColor:UIColor?
     
     override func viewDidLoad() {
         
@@ -58,36 +59,10 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
         self.generateStory()
         
         let scrollView = self.view as! UIScrollView
-        scrollView.setContentOffset(CGPoint(x: 0, y: -self.view.frame.height), animated: false)
         
     }
     
 
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        let scrollView = self.view as! UIScrollView
-        scrollView.setContentOffset(CGPoint(x: 0, y: -self.view.frame.height), animated: false)
-        
-        /*
-        
-        private func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-        dispatch_time(
-        DISPATCH_TIME_NOW,
-        Int64(delay * Double(NSEC_PER_SEC))
-        ),
-        dispatch_get_main_queue(), closure)
-        }
-        
-        self.view.userInteractionEnabled = false
-        delay(0.1, closure: { () -> () in
-            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            self.view.userInteractionEnabled = true
-
-        })
-        */
-    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
@@ -98,13 +73,7 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
             let p = self.pageViews[i]
             p.updateProgressValue(progress - CGFloat(i))
         }
-        
-        //If reaches the end of the story
-        if progress >= CGFloat(self.pageViews.count)
-        {
-            scrollView.bounces = false
-            self.toNextGame()
-        }
+    
         
     }
     
@@ -137,10 +106,40 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
                 else
                 {
                     let finalView = UIView(frame: pageRect)
-                    finalView.backgroundColor = UIColor.redColor()
+                    
+                    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 220, height: 50))
+                    
+                    button.setTitle("Continue", forState: UIControlState.Normal)
+                    
+                    let font = UIFont(name: "Perfograma", size: 30)
+
+                    button.titleLabel!.font = font
+                    
+
+                    
+                    button.addTarget(self, action: "toNextGame", forControlEvents: UIControlEvents.TouchUpInside)
+                    
+                    button.center = CGPoint(x: CGRectGetMidX(finalView.bounds), y: CGRectGetMidY(finalView.bounds))
+                    
+                    //OOOOPS
+                    if s.pages.last!.storyText == "Because it's clear for me. I love making apps."
+                    {
+                        button.setTitle("The End", forState: UIControlState.Normal)
+                        button.userInteractionEnabled = false
+
+                    }
+                    
+                    finalView.addSubview(button)
+
+                    
+                    
+                    if let c = self.endingColor {
+                        finalView.backgroundColor = c
+                    }
                     
                     //self.pageViews.append(finalView)
                     scrollView.addSubview(finalView)
+                    self.view.sendSubviewToBack(finalView)
                     
                 }
                 

@@ -10,81 +10,68 @@ import Foundation
 import UIKit
 
 
-class PairController {
-    
-    weak var gameController:PairingGame?
-    
-    weak var node1:ARPairingNode?
-    weak var node2:ARPairingNode?
-    
-    var pairType:Int
-    
-    init(node1 n1: ARPairingNode, andNode2 n2:ARPairingNode, type: Int) {
-        
-        self.pairType = type
-        
-        self.node1 = n1
-        self.node2 = n2
-
-        let g1 = UITapGestureRecognizer(target: self, action: "tap1")
-        let g2 = UITapGestureRecognizer(target: self, action: "tap2")
-        
-        self.node1!.addGestureRecognizer(g1)
-        self.node2!.addGestureRecognizer(g2)
-    }
-    
-    func tap1()
-    {
-        //self.node1.reveal()
-    }
-    
-    func tap2()
-    {
-        //self.node2.reveal()
-
-    }
-    
-}
-
 class ARPairingNode: ARNode {
     
-    override init(radius: CGFloat, center: CGPoint) {
+    let animationsDuration = 0.5
+    let unrevealedColor = UIColor.lightGrayColor()
+    let pairColors = [
+       UIColor(red:0.45, green:0.47, blue:0.79, alpha:1.0),
+       UIColor(red:0.64, green:0.83, blue:0.71, alpha:1.0),
+        UIColor(red:1.0, green:0.81, blue:0.61, alpha:1.0)  
+    ]
+    
+    var pairId:Int
+    var revealed = false
+    
+    init(radius: CGFloat, center: CGPoint, pairId:Int) {
+        self.pairId = pairId
         super.init(radius: radius, center: center)
         
-        self.backgroundColor = UIColor.cyanColor()
+        self.backgroundColor = self.unrevealedColor
     }
     
     required init(coder aDecoder: NSCoder) {
+        self.pairId = 0
         super.init(coder: aDecoder)
         
     }
     
     func reveal()
     {
-        
+        self.revealed = true
         var identity = CATransform3DIdentity;
         identity.m34 = 1.0 / -500;
         identity = CATransform3DRotate(identity, CGFloat(180 * M_PI / 180.0), CGFloat(0), CGFloat(1), CGFloat(0));
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(self.animationsDuration, animations: { () -> Void in
             self.layer.transform = identity
-            }) { (finished: Bool) -> Void in
-                
-        }
+            self.backgroundColor = self.pairColors[self.pairId]
+        },completion:nil)
     }
     
-    func hide()
+    func unreveal()
     {
+        self.revealed = false
         var identity = CATransform3DIdentity;
         identity.m34 = 1.0 / -500;
         identity = CATransform3DRotate(identity, CGFloat(0 * M_PI / 180.0), CGFloat(0), CGFloat(1), CGFloat(0));
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(self.animationsDuration, animations: { () -> Void in
             self.layer.transform = identity
-            }) { (finished: Bool) -> Void in
+            self.backgroundColor = self.unrevealedColor
 
-        }
+        }, completion:nil)
         
+    }
+    
+    func fadeOut() {
+        
+        UIView.animateWithDuration(self.animationsDuration, delay: self.animationsDuration,options:nil, animations: { () -> Void in
+            self.alpha = 0.0
+            
+            }) { (finished: Bool) -> Void in
+                self.removeFromSuperview()
+        }
     }
     
 }
