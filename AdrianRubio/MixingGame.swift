@@ -16,6 +16,7 @@ let ACCEPTABLE_DISTANCE:CGFloat = 40.0
 
 extension MixingGame
 {
+    
     func distanceBetweenRects( rect1: CGRect,_ rect2: CGRect) -> CGFloat {
         let c1 = CGPointMake( CGRectGetMidX( rect1 ), CGRectGetMidY( rect1 ) )
         let c2 = CGPointMake( CGRectGetMidX( rect2 ), CGRectGetMidY( rect2 ) )
@@ -69,7 +70,20 @@ class MixingGame: GameViewController,SKSceneDelegate {
     let blueNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
     let redNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
     let greenNode = ARMixingNode(circleOfRadius: SHAPES_RADIUS)
+    
+    var initialGreenPosition = CGPointZero
+    var initialRedPosition = CGPointZero
+    var initialBluePosition = CGPointZero
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.greenNode.position = self.initialGreenPosition
+        self.redNode.position = self.initialRedPosition
+        self.blueNode.position = self.initialBluePosition
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,7 +101,7 @@ class MixingGame: GameViewController,SKSceneDelegate {
         self.blueNode.strokeColor = UIColor.blueColor()
         self.blueNode.blendMode = SKBlendMode.Screen
         
-        self.blueNode.position = CGPoint(x: self.view.frame.size.width/2,y: self.view.frame.size.height/2 + TRIANGULAR_SEPARATION_RADIUS )
+        self.initialBluePosition = CGPoint(x: self.view.frame.size.width/2,y: self.view.frame.size.height/2 + TRIANGULAR_SEPARATION_RADIUS )
         scene.addChild(self.blueNode)
         
         self.redNode.fillColor = UIColor.redColor()
@@ -96,7 +110,7 @@ class MixingGame: GameViewController,SKSceneDelegate {
         
         let redX = cos(210.0 * CGFloat(M_PI)/180.0) * TRIANGULAR_SEPARATION_RADIUS
         let redY = sin(210 * CGFloat(M_PI)/180) * TRIANGULAR_SEPARATION_RADIUS
-        self.redNode.position = CGPoint(x: self.view.frame.size.width/2 + redX,y: self.view.frame.size.height/2 + redY)
+        self.initialRedPosition = CGPoint(x: self.view.frame.size.width/2 + redX,y: self.view.frame.size.height/2 + redY)
         scene.addChild(self.redNode)
         
         self.greenNode.fillColor = UIColor.greenColor()
@@ -106,13 +120,19 @@ class MixingGame: GameViewController,SKSceneDelegate {
         
         let greenX = cos(330*CGFloat(M_PI)/180) * TRIANGULAR_SEPARATION_RADIUS
         let greenY = sin(330*CGFloat(M_PI)/180) * TRIANGULAR_SEPARATION_RADIUS
-        self.greenNode.position = CGPoint(x: self.view.frame.size.width/2 + greenX ,y: self.view.frame.size.height/2 + greenY)
+        self.initialGreenPosition = CGPoint(x: self.view.frame.size.width/2 + greenX ,y: self.view.frame.size.height/2 + greenY)
+        
+        self.greenNode.position = self.initialGreenPosition
+        self.redNode.position = self.initialRedPosition
+        self.blueNode.position = self.initialBluePosition
+        
+        
         scene.addChild(self.greenNode)
             
         skView.presentScene(scene)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
         
         let dist1 = self.distanceBetweenRects(self.redNode.frame, self.blueNode.frame)

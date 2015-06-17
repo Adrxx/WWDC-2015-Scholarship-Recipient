@@ -13,7 +13,7 @@ extension PairingGame {
     
     //Thanks Stack Overflow...
     func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
-        let c = count(list)
+        let c = list.count
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
             swap(&list[i], &list[j])
@@ -36,6 +36,28 @@ class PairingGame: GameViewController {
     let ySeparation:CGFloat = 50
     
     var nodes = [ARPairingNode]()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.nodes = shuffle(self.nodes)
+        for n in self.nodes {
+            n.reset()
+            self.view.addSubview(n)
+        }
+        
+        let offset = (self.ySeparation * CGFloat(self.nodes.count-1))/2
+
+        for i in 0..<self.nodes.count {
+            
+            var side:CGFloat = 1
+            if i % 2 == 0 {
+                side = -1
+            }
+            
+            self.nodes[i].center = CGPoint(x: self.view.center.x+self.xSeparation*side, y: self.view.center.y+CGFloat(i)*self.ySeparation - offset)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,13 +117,13 @@ class PairingGame: GameViewController {
             {
                 if i.pairId == n.pairId{
                     i.fadeOut()
-                    if let index = find(self.nodes,i)
+                    if let index = self.nodes.indexOf(i)
                     {
                         self.nodes.removeAtIndex(index)
                     }
                     
                     n.fadeOut()
-                    if let index = find(self.nodes,n)
+                    if let index = self.nodes.indexOf(n)
                     {
                         self.nodes.removeAtIndex(index)
                     }

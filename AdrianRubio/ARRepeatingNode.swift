@@ -96,12 +96,12 @@ class ARRepeatingNode: ARNode {
             g.tappedNodeWithIdentifier(self.identifier)
         }
         
-        UIView.animateWithDuration(self.tapDuration, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction | UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+        UIView.animateWithDuration(self.tapDuration, delay: 0.0, options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
             self.buttonNode.backgroundColor = self.color.darkerColor()
 
             }) { (finished: Bool) -> Void in
             
-                UIView.animateWithDuration(self.tapDuration, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction | UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+                UIView.animateWithDuration(self.tapDuration, delay: 0.0, options: [UIViewAnimationOptions.AllowUserInteraction, UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
                     self.buttonNode.backgroundColor = self.color
                  
                     

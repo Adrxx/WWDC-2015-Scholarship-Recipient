@@ -34,7 +34,7 @@ class Story {
             
         }
         else {
-            print("Story: No such path.")
+            print("Story: No such path.", appendNewline: false)
         }
     }
     
@@ -52,6 +52,7 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
     var story:Story?
     var pageViews = [PageView]()
     var endingColor:UIColor?
+    var finalStory = false
     
     override func viewDidLoad() {
         
@@ -109,33 +110,33 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
                     
                     let button = UIButton(frame: CGRect(x: 0, y: 0, width: 220, height: 50))
                     
-                    button.setTitle("Continue", forState: UIControlState.Normal)
-                    
                     let font = UIFont(name: "Perfograma", size: 30)
 
                     button.titleLabel!.font = font
-                    
 
-                    
-                    button.addTarget(self, action: "toNextGame", forControlEvents: UIControlEvents.TouchUpInside)
-                    
                     button.center = CGPoint(x: CGRectGetMidX(finalView.bounds), y: CGRectGetMidY(finalView.bounds))
                     
-                    //OOOOPS
-                    if s.pages.last!.storyText == "Because it's clear for me. I love making apps."
-                    {
-                        button.setTitle("The End", forState: UIControlState.Normal)
-                        button.userInteractionEnabled = false
-
-                    }
-                    
                     finalView.addSubview(button)
-
-                    
                     
                     if let c = self.endingColor {
                         finalView.backgroundColor = c
                     }
+                    
+                    //OOOOPS
+                    if self.finalStory
+                    {
+                        button.setTitle("The End", forState: UIControlState.Normal)
+                        
+                        button.addTarget(self, action: "toReset", forControlEvents: UIControlEvents.TouchUpInside)
+                        
+                    }
+                    else
+                    {
+                        button.setTitle("Continue", forState: UIControlState.Normal)
+                        
+                        button.addTarget(self, action: "toNextGame", forControlEvents: UIControlEvents.TouchUpInside)
+                    }
+                    
                     
                     //self.pageViews.append(finalView)
                     scrollView.addSubview(finalView)
@@ -153,6 +154,12 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
     func toNextGame()
     {
         self.performSegueWithIdentifier("toNextGame", sender: self)
+    }
+    
+    
+    func toReset()
+    {
+        self.navigationController?.popToRootViewControllerAnimated(true);
     }
     
     override func prefersStatusBarHidden() -> Bool {

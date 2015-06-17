@@ -31,6 +31,17 @@ class MatchingGame: GameViewController {
     let nodeSeparation:CGFloat = 80.0
     var nodes = [ARMatchingNode]()
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        while self.allNodesValuesEqual(self.nodes)
+        {
+            for i in self.nodes
+            {
+                i.randomize()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = self.bgColor
@@ -64,7 +75,7 @@ class MatchingGame: GameViewController {
     }
     
     //Faster than attatching a delegate to every node... however not very elegant.
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
 
         if self.allNodesValuesEqual(self.nodes) {

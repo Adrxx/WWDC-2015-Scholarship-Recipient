@@ -38,14 +38,22 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
     var animator:UIDynamicAnimator!
     var pusher:UIPushBehavior!
     var nodes = [ARClearingNode]()
+    var clue:UILabel!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //self.shuffleNodes(self.nodes, inRect: self.clue.frame)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = self.bgColor
-        let clue = self.generateClue("Clear",color:self.clueColor)
+        self.clue = self.generateClue("Clear",color:self.clueColor)
         
-        clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
+        self.clue.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
         self.view.addSubview(clue)
         
         self.animator = UIDynamicAnimator(referenceView: self.view)
@@ -79,14 +87,14 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
         
     }
     
-    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint) {
         
         if "boundary" == (identifier as! String)
         {
             let v = item as! ARClearingNode
             v.removeFromSuperview()
             
-            if let i = find(self.nodes, v)
+            if let i = self.nodes.indexOf(v)
             {
                 self.nodes.removeAtIndex(i)
                 if self.nodes.isEmpty
@@ -109,7 +117,7 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
             node.pusher.pushDirection = CGVectorMake(v.x, v.y)
             
             let hyp = sqrt(v.x*v.x + v.y*v.y)
-            node.pusher.magnitude = hyp/6000
+            node.pusher.magnitude = hyp/5000
             node.pusher.active = true
             
         }
@@ -120,6 +128,7 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
         
         let d = segue.destinationViewController as! StoryViewController
         d.endingColor =  UIColor(red:0.73, green:0.86, blue:0.85, alpha:1.0)
+        d.finalStory = true
         
     }
     

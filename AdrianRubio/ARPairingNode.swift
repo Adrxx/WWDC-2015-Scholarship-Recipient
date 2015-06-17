@@ -66,12 +66,22 @@ class ARPairingNode: ARNode {
     
     func fadeOut() {
         
-        UIView.animateWithDuration(self.animationsDuration, delay: self.animationsDuration,options:nil, animations: { () -> Void in
+        UIView.animateWithDuration(self.animationsDuration, delay: self.animationsDuration,options:[], animations: { () -> Void in
             self.alpha = 0.0
             
             }) { (finished: Bool) -> Void in
                 self.removeFromSuperview()
         }
     }
+    
+    func reset()
+    {
+        self.revealed = false
+        self.alpha = 1.0
+        let identity = CATransform3DIdentity;
+        self.layer.transform = identity
+        self.backgroundColor = self.unrevealedColor
+    }
+    
     
 }

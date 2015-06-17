@@ -25,7 +25,7 @@ class ARMixingNode: SKShapeNode {
     }
     
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         for touch: AnyObject in touches {
             
@@ -34,7 +34,7 @@ class ARMixingNode: SKShapeNode {
         }
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesMoved(touches, withEvent: event)
 
         for touch: AnyObject in touches {

@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>story</key>
-		<string>One year before college, I had this class called "Entreprenourship". Our final project consisted in making a whole bussines model of anything we wanted. We would then compete with other classes for the best project.
+		<string>One year before college, I had this class called "Entrepreneurship". Our final project consisted in making a whole business model about anything we wanted. We would then compete with other classes for the best project.
 
 By that time, I considered myself pretty good at Objective-C.</string>
 		<key>imageFile</key>
@@ -12,7 +12,7 @@ By that time, I considered myself pretty good at Objective-C.</string>
 	</dict>
   <dict>
     <key>story</key>
-    <string>The price for winning the contest was a scholarship for a thing called "Company Incubator" where we could have special courses and advisors to help us create our own company.</string>
+    <string>The best project would win a scholarship for a business incubator where we could have special courses and advisors to help us create our own company.</string>
     <key>imageFile</key>
     <string></string>
   </dict>
@@ -20,9 +20,9 @@ By that time, I considered myself pretty good at Objective-C.</string>
 		<key>story</key>
 		<string>The project didn't really need us to make a physical product, but I wanted to test my skills, and we as a team decided to make an app.
 
-A simple but really cool app about finding where to eat. Where the restaurants would pay to be featured in the app.
+A simple but really cool app about finding where to eat. The restaurants would then pay to be featured in the app.
 
-I would program, and my two other friends would design experience and plan the buissines model</string>
+I would program, and my two other friends would design the experience and plan the business model.</string>
 		<key>imageFile</key>
 		<string></string>
 	</dict>

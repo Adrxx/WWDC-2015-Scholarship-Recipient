@@ -16,7 +16,7 @@ extension RepeatingGame {
     
     private func alignNodesInLine(items:[ARRepeatingNode],center: CGPoint,separation: CGFloat) {
         let offset = (separation * CGFloat(items.count-1))/2
-        for i in enumerate(items) {
+        for i in items.enumerate() {
             
             i.element.center = CGPoint(x: center.x, y: center.y + separation * CGFloat(i.index) - offset)
         }
@@ -26,7 +26,7 @@ extension RepeatingGame {
         var seq = [Int]()
         for i in 0..<lenght
         {
-            let r = Int( arc4random_uniform(CUnsignedInt(nodeCount)))
+            let r = Int( arc4random_uniform(CUnsignedInt(nodeCount)) )
             seq.append(r)
         }
         return seq
@@ -46,9 +46,10 @@ class RepeatingGame : GameViewController {
         UIColor(red:0.9, green:0.19, blue:0.32, alpha:1.0),
         UIColor(red:0.27, green:0.7, blue:0.46, alpha:1.0)
     ]
-    let NODE_RADIUS:CGFloat = 30
-    let nodeSeparation:CGFloat = 100
-    let delayBetweenFlashes:Double = 0.5
+    
+    let NODE_RADIUS: CGFloat = 30
+    let nodeSeparation: CGFloat = 100
+    let delayBetweenFlashes: Double = 0.5
     let delayBeforePlaying: Double = 0.7
     let sequenceLenght = 6
     
@@ -58,6 +59,11 @@ class RepeatingGame : GameViewController {
     
     var nodes:[ARRepeatingNode] = []
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        restartGame()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +104,7 @@ class RepeatingGame : GameViewController {
     {
         self.view.userInteractionEnabled = false
 
-        for i in enumerate(self.sequence)
+        for i in self.sequence.enumerate()
         {
             if i.index <= self.sequenceCurrentLimit {
                 delay(self.delayBeforePlaying + self.delayBetweenFlashes * Double(i.index), closure: { () -> () in

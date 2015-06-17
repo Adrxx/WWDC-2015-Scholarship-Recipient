@@ -14,6 +14,7 @@ class ARInflatingNode: ARNode {
     class mapper: UIView {
         var target:ARInflatingNode?
         var goalValue:CGFloat = 1.0
+        var active = true
         override var center:CGPoint {
             didSet
             {
@@ -32,8 +33,10 @@ class ARInflatingNode: ARNode {
         {
             if let t = target
             {
-                //println("VALUE= \(val)")
-                t.inflation = val * t.inflationGoal + t.baseInflation
+                if active
+                {
+                    t.inflation = val * t.inflationGoal + t.baseInflation
+                }
             }
         }
     }

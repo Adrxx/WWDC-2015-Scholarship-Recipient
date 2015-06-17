@@ -18,7 +18,7 @@ import SpriteKit
 
 class ARNode: UIView
 {
-    var radius:CGFloat {
+    var radius:CGFloat = 0 {
         didSet
         {
             //nodes are circles
@@ -39,7 +39,6 @@ class ARNode: UIView
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.radius = 0
         super.init(coder: aDecoder)
     }
     

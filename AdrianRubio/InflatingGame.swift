@@ -20,7 +20,14 @@ class InflatingGame: GameViewController {
     var animator:UIDynamicAnimator!
     var gravityMapper:ARInflatingNode.mapper!
     var pusher:UIPushBehavior!
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.gravityMapper.active = true
+        self.gravityMapper.mapValue(0)
+        
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -96,7 +103,7 @@ class InflatingGame: GameViewController {
     
     override func challengeWon() {
         super.challengeWon()
-        self.animator.removeAllBehaviors()
+        self.gravityMapper.active = false
     }
     
     

@@ -15,9 +15,5 @@ class NavigationController: UINavigationController {
         super.viewDidLoad()
     }
     
-    func resetApp()
-    {
-        self.popToRootViewControllerAnimated(true)
-    }
     
 }

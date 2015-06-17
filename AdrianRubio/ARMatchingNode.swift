@@ -54,7 +54,7 @@ class ARMatchingNode: ARNode {
         super.init(coder: aDecoder)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         self.swapColor()
     }
