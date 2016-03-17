@@ -19,9 +19,9 @@ class PolygonBackground: SCNScene {
         self.rootNode.addChildNode(cameraNode)
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
         let ps = SCNParticleSystem(named: "Background.scnp", inDirectory: "")
-        self.rootNode.addParticleSystem(ps)
-        let color = UIColor(red: 0.212, green: 0.002, blue: 0.010, alpha: 1)
-        ps.particleColor = UIColor.redColor()
+        self.rootNode.addParticleSystem(ps!)
+        //let color = UIColor(red: 0.212, green: 0.002, blue: 0.010, alpha: 1)
+        ps!.particleColor = UIColor.redColor()
         
     }
 

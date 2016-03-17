@@ -32,6 +32,7 @@ extension GameViewController
         return lab
     }
     
+    
     //Guilty
     func delay(delay:Double, closure:()->()) {
         dispatch_after(

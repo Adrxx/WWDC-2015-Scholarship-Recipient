@@ -34,7 +34,7 @@ class Story {
             
         }
         else {
-            print("Story: No such path.", appendNewline: false)
+            print("Story: No such path.")
         }
     }
     
@@ -59,7 +59,7 @@ class StoryViewController: UIViewController, UIScrollViewDelegate {
         self.story = Story(fileName: self.storyFile)
         self.generateStory()
         
-        let scrollView = self.view as! UIScrollView
+        //let scrollView = self.view as! UIScrollView
         
     }
     

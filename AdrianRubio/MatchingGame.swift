@@ -56,7 +56,7 @@ class MatchingGame: GameViewController {
         self.view.addSubview(clue)
         
         // 5 nodes in this level
-        for i in 0..<5 {
+        for _ in 0..<5 {
             let n = ARMatchingNode(radius: self.nodeSize, center: CGPointZero)
             self.nodes.append(n)
             self.view.addSubview(n)
@@ -76,8 +76,7 @@ class MatchingGame: GameViewController {
     
     //Faster than attatching a delegate to every node... however not very elegant.
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
-
+        
         if self.allNodesValuesEqual(self.nodes) {
             self.challengeWon()
         }

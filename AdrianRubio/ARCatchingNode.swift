@@ -30,7 +30,7 @@ class ARCatchingNode: SKShapeNode {
             case .Off:
                 self.setToOff()
             default:
-                print("No such state.", appendNewline: false)
+                print("No such state.")
             }
         }
     }

@@ -268,7 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Ment;
 				TargetAttributes = {
 					3A0C1B2B1AE199F100D718CE = {
@@ -418,6 +418,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -489,6 +490,7 @@
 				INFOPLIST_FILE = AdrianRubio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ment.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AdrianRubio;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,6 +506,7 @@
 				INFOPLIST_FILE = AdrianRubio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ment.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AdrianRubio;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,6 +527,7 @@
 				);
 				INFOPLIST_FILE = AdrianRubioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ment.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AdrianRubioTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdrianRubio.app/AdrianRubio";
 			};
@@ -539,6 +543,7 @@
 				);
 				INFOPLIST_FILE = AdrianRubioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ment.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AdrianRubioTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdrianRubio.app/AdrianRubio";
 			};

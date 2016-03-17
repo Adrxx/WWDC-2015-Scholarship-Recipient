@@ -58,7 +58,7 @@ class ClearingGame: GameViewController, UICollisionBehaviorDelegate {
         
         self.animator = UIDynamicAnimator(referenceView: self.view)
         
-        for i in 0..<self.nodeCount {
+        for _ in 0..<self.nodeCount {
             let n = ARClearingNode(radius: self.nodeRadius, center: CGPointZero)
             
             let swiper = UIPanGestureRecognizer(target: self, action: "swiped:")

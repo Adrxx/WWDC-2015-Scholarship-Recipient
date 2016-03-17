@@ -24,7 +24,7 @@ extension RepeatingGame {
     
     private func generateSequence(nodeCount:Int,lenght:Int) -> [Int] {
         var seq = [Int]()
-        for i in 0..<lenght
+        for _ in 0..<lenght
         {
             let r = Int( arc4random_uniform(CUnsignedInt(nodeCount)) )
             seq.append(r)
@@ -51,7 +51,7 @@ class RepeatingGame : GameViewController {
     let nodeSeparation: CGFloat = 100
     let delayBetweenFlashes: Double = 0.5
     let delayBeforePlaying: Double = 0.7
-    let sequenceLenght = 6
+    let sequenceLenght = 4
     
     var sequence = [Int]()
     var sequenceCurrentLimit = 0
@@ -62,7 +62,8 @@ class RepeatingGame : GameViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        restartGame()
+        self.restartGame()
+
     }
 
     override func viewDidLoad() {
@@ -89,7 +90,6 @@ class RepeatingGame : GameViewController {
         }
         
         self.alignNodesInLine(self.nodes, center:self.view.center, separation: nodeSeparation)
-        self.restartGame()
     }
     
     func restartGame()
@@ -97,6 +97,7 @@ class RepeatingGame : GameViewController {
         self.currentStep = 0
         self.sequenceCurrentLimit = 0
         self.sequence = self.generateSequence(nodeCount, lenght: self.sequenceLenght)
+        
         self.playSequence()
     }
     

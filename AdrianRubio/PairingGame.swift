@@ -9,19 +9,18 @@
 import Foundation
 import UIKit
 
-extension PairingGame {
-    
-    //Thanks Stack Overflow...
-    func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
-        let c = list.count
-        for i in 0..<(c - 1) {
-            let j = Int(arc4random_uniform(UInt32(c - i))) + i
-            swap(&list[i], &list[j])
+extension Array
+{
+    /** Randomizes the order of an array's elements. */
+    mutating func shuffle()
+    {
+        for _ in 0..<10
+        {
+            sortInPlace { (_,_) in arc4random() < arc4random() }
         }
-        return list
     }
-    
 }
+
 
 class PairingGame: GameViewController {
     
@@ -40,7 +39,7 @@ class PairingGame: GameViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.nodes = shuffle(self.nodes)
+        self.nodes.shuffle()
         for n in self.nodes {
             n.reset()
             self.view.addSubview(n)
@@ -87,8 +86,8 @@ class PairingGame: GameViewController {
         }
         
         
-        self.nodes = shuffle(self.nodes)
-        
+        self.nodes.shuffle()
+
         let offset = (self.ySeparation * CGFloat(self.nodes.count-1))/2
         
         for i in 0..<self.nodes.count {
